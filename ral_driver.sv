@@ -1,7 +1,7 @@
 class apb_driver extends uvm_driver#(apb_transaction);
   `uvm_component_utils(apb_driver)
 
-  virtual apb_if vif;
+  virtual ral_if vif;
   apb_transaction tr;
 
   function new(string name = "apb_driver", uvm_component parent = null);
@@ -10,7 +10,7 @@ class apb_driver extends uvm_driver#(apb_transaction);
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual apb_if)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual ral_if)::get(this, "", "vif", vif))
       `uvm_error("DRV", "Unable to access interface");
   endfunction
 

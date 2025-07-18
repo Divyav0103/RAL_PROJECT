@@ -8,7 +8,7 @@ class apb_scoreboard extends uvm_scoreboard;
     super.new(name, parent);
   endfunction
 
-  virtual function build_phase(uvm_phase phase);
+  virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     aport=new("aport",this);
   endfunction
