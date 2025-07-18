@@ -1,5 +1,5 @@
-# vsim -c -sv_lib ./dpi work.tb -do "run -all; quit" 
-# Start time: 14:49:19 on Jul 18,2025
+# vsim -c -do "run -all;exit;" tb 
+# Start time: 15:05:31 on Jul 18,2025
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -17,93 +17,57 @@
 # //
 # Loading sv_std.std
 # Loading work.ral_if(fast)
-# Loading work.uvm_pkg(fast)
+# Loading mtiUvm.uvm_pkg
 # Loading work.ral_pkg(fast)
-# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
-# This also means that later if you turn on UVM-aware debugging your debug simulations may have
-# different random seeds from your non-debug simulations.
 # Loading work.ral_top_sv_unit(fast)
 # Loading work.tb(fast)
-# ** Warning: (vsim-3116) Problem reading symbols from ././dpi.so : Not ELFCLASS32.
-# ** Warning: ** Warning: (vsim-3772) Failed to find the undefined symbols for shared library file "././dpi.so".
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
 # 
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Loading ././dpi.so
-# ** Error: (vsim-125) The shared library ././dpi.so being loaded was built on a 64-bit machine. A 64-bit shared library cannot be loaded in a 32-bit simulation. Please use compatible machines to build and load the library
-# ** Error (suppressible): (vsim-3197) Load of "././dpi.so" failed: ././dpi.so: wrong ELF class: ELFCLASS64.
-# ** Error (suppressible): (vsim-3748) Failed to load DPI object file "././dpi.so" while trying to resolve 'uvm_dpi_get_next_arg_c'.
-# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_get_next_arg_c' in DPI precompiled library search list "././dpi.so ".
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# ** Warning: (vsim-3116) Problem reading symbols from ././dpi.so : Not ELFCLASS32.
-# ** Warning: ** Warning: (vsim-3772) Failed to find the undefined symbols for shared library file "././dpi.so".
+#   ***********       IMPORTANT RELEASE NOTES         ************
 # 
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Loading ././dpi.so
-# ** Error: (vsim-125) The shared library ././dpi.so being loaded was built on a 64-bit machine. A 64-bit shared library cannot be loaded in a 32-bit simulation. Please use compatible machines to build and load the library
-# ** Error (suppressible): (vsim-3197) Load of "././dpi.so" failed: ././dpi.so: wrong ELF class: ELFCLASS64.
-# ** Error (suppressible): (vsim-3748) Failed to load DPI object file "././dpi.so" while trying to resolve 'uvm_dpi_get_tool_name_c'.
-# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_get_tool_name_c' in DPI precompiled library search list "././dpi.so ".
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# ** Warning: (vsim-3116) Problem reading symbols from ././dpi.so : Not ELFCLASS32.
-# ** Warning: ** Warning: (vsim-3772) Failed to find the undefined symbols for shared library file "././dpi.so".
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
 # 
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Loading ././dpi.so
-# ** Error: (vsim-125) The shared library ././dpi.so being loaded was built on a 64-bit machine. A 64-bit shared library cannot be loaded in a 32-bit simulation. Please use compatible machines to build and load the library
-# ** Error (suppressible): (vsim-3197) Load of "././dpi.so" failed: ././dpi.so: wrong ELF class: ELFCLASS64.
-# ** Error (suppressible): (vsim-3748) Failed to load DPI object file "././dpi.so" while trying to resolve 'uvm_dpi_get_tool_version_c'.
-# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_get_tool_version_c' in DPI precompiled library search list "././dpi.so ".
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# ** Warning: (vsim-3116) Problem reading symbols from ././dpi.so : Not ELFCLASS32.
-# ** Warning: ** Warning: (vsim-3772) Failed to find the undefined symbols for shared library file "././dpi.so".
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
 # 
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Loading ././dpi.so
-# ** Error: (vsim-125) The shared library ././dpi.so being loaded was built on a 64-bit machine. A 64-bit shared library cannot be loaded in a 32-bit simulation. Please use compatible machines to build and load the library
-# ** Error (suppressible): (vsim-3197) Load of "././dpi.so" failed: ././dpi.so: wrong ELF class: ELFCLASS64.
-# ** Error (suppressible): (vsim-3748) Failed to load DPI object file "././dpi.so" while trying to resolve 'uvm_dpi_regcomp'.
-# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_regcomp' in DPI precompiled library search list "././dpi.so ".
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# ** Warning: (vsim-3116) Problem reading symbols from ././dpi.so : Not ELFCLASS32.
-# ** Warning: ** Warning: (vsim-3772) Failed to find the undefined symbols for shared library file "././dpi.so".
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Loading ././dpi.so
-# ** Error: (vsim-125) The shared library ././dpi.so being loaded was built on a 64-bit machine. A 64-bit shared library cannot be loaded in a 32-bit simulation. Please use compatible machines to build and load the library
-# ** Error (suppressible): (vsim-3197) Load of "././dpi.so" failed: ././dpi.so: wrong ELF class: ELFCLASS64.
-# ** Error (suppressible): (vsim-3748) Failed to load DPI object file "././dpi.so" while trying to resolve 'uvm_dpi_regexec'.
-# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_regexec' in DPI precompiled library search list "././dpi.so ".
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# ** Warning: (vsim-3116) Problem reading symbols from ././dpi.so : Not ELFCLASS32.
-# ** Warning: ** Warning: (vsim-3772) Failed to find the undefined symbols for shared library file "././dpi.so".
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
+# UVM_INFO ral_sequence.sv(16) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Initial Register Value : 0
+# UVM_INFO ral_driver.sv(34) @ 30: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> WDATA: 85
+# UVM_INFO ral_sequence.sv(24) @ 30: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Updated Register Value : 85
+# UVM_INFO ral_driver.sv(34) @ 70: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> WDATA: 170
+# UVM_INFO ral_sequence.sv(32) @ 70: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Final Register Value : 170
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 270: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Loading ././dpi.so
-# ** Error: (vsim-125) The shared library ././dpi.so being loaded was built on a 64-bit machine. A 64-bit shared library cannot be loaded in a 32-bit simulation. Please use compatible machines to build and load the library
-# ** Error (suppressible): (vsim-3197) Load of "././dpi.so" failed: ././dpi.so: wrong ELF class: ELFCLASS64.
-# ** Error (suppressible): (vsim-3748) Failed to load DPI object file "././dpi.so" while trying to resolve 'uvm_dpi_regfree'.
-# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dpi_regfree' in DPI precompiled library search list "././dpi.so ".
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# ** Warning: (vsim-3116) Problem reading symbols from ././dpi.so : Not ELFCLASS32.
-# ** Warning: ** Warning: (vsim-3772) Failed to find the undefined symbols for shared library file "././dpi.so".
+# --- UVM Report Summary ---
 # 
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Loading ././dpi.so
-# ** Error: (vsim-125) The shared library ././dpi.so being loaded was built on a 64-bit machine. A 64-bit shared library cannot be loaded in a 32-bit simulation. Please use compatible machines to build and load the library
-# ** Error (suppressible): (vsim-3197) Load of "././dpi.so" failed: ././dpi.so: wrong ELF class: ELFCLASS64.
-# ** Error (suppressible): (vsim-3748) Failed to load DPI object file "././dpi.so" while trying to resolve 'uvm_dump_re_cache'.
-# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_dump_re_cache' in DPI precompiled library search list "././dpi.so ".
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# ** Warning: (vsim-3116) Problem reading symbols from ././dpi.so : Not ELFCLASS32.
-# ** Warning: ** Warning: (vsim-3772) Failed to find the undefined symbols for shared library file "././dpi.so".
-# 
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Loading ././dpi.so
-# ** Error: (vsim-125) The shared library ././dpi.so being loaded was built on a 64-bit machine. A 64-bit shared library cannot be loaded in a 32-bit simulation. Please use compatible machines to build and load the library
-# ** Error (suppressible): (vsim-3197) Load of "././dpi.so" failed: ././dpi.so: wrong ELF class: ELFCLASS64.
-# ** Error (suppressible): (vsim-3748) Failed to load DPI object file "././dpi.so" while trying to resolve 'uvm_glob_to_re'.
-# ** Warning: (vsim-3770) Failed to find user specified function 'uvm_glob_to_re' in DPI precompiled library search list "././dpi.so ".
-#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg File: /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
-# Error loading design
-# End time: 14:49:20 on Jul 18,2025, Elapsed time: 0:00:01
-# Errors: 24, Warnings: 32
+# ** Report counts by severity
+# UVM_INFO :    9
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DRV]     2
+# [Questa UVM]     2
+# [RNTST]     1
+# [SEQ]     3
+# [TEST_DONE]     1
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 270 ns  Iteration: 53  Instance: /tb
+# End time: 15:05:32 on Jul 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
