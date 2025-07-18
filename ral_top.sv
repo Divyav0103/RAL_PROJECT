@@ -7,20 +7,21 @@ import uvm_pkg::*;
 import ral_pkg::*;
 
 module tb;
-  
- virtual  ral_if vif;
-  apb_slave  dut(vif.PCLK,vif.PRESETn,vif.SEL,vif.PENABLE,vif.PWRITE,vif.PADDR,vif.PWDATA,vif.PRDATA);
-  
+ bit CLK,PRESETn=0; 
+  apb_slave  dut(CLK,PRESETn,vif.PSEL,vif.PENABLE,vif.PWRITE,vif.PADDR,vif.PWDATA,vif.PRDATA);
+  ral_if vif(CLK,PRESETn);
   initial begin
-    vif.PCLK<=0;
+    CLK=0;
+    PRESETn=1;
+#10 PRESETn=0;
   end
   
-  always #10 vif.PCLK =~vif.PCLK;
+  always #10 CLK =~CLK;
   
   initial begin
     uvm_config_db#(virtual ral_if)::set(null,"*","vif",vif);
     
-    run_test("test");
+    run_test("apb_test");
   end
   
   initial begin

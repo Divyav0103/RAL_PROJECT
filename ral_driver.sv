@@ -25,17 +25,16 @@ class apb_driver extends uvm_driver#(apb_transaction);
 
   task drive();
     @(posedge vif.PCLK);
-    vif.PRESETn <= 1'b0;
     vif.PWRITE <= tr.PWRITE;
     vif.PADDR <= tr.PADDR;
     
     if (tr.PWRITE) begin
       vif.PWDATA <= tr.PWDATA;
-      @(posedge vif.pclk);
+      @(posedge vif.PCLK);
       `uvm_info("DRV", $sformatf("Data Write -> WDATA: %0d", vif.PWDATA), UVM_NONE);
     end else begin
       tr.PRDATA = vif.PRDATA;
-      @(posedge vif.pclk);
+      @(posedge vif.PCLK);
       `uvm_info("DRV", $sformatf("Data Read -> RDATA: %0d", tr.PRDATA), UVM_NONE);
     end
   endtask
