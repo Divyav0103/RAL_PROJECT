@@ -19,15 +19,21 @@ function void build_phase(uvm_phase phase);
     apb_transaction tr;
     tr = apb_transaction::type_id::create("tr");
 
-    forever begin
+  forever   begin
+      `uvm_info("MON",$sformatf("INISDE MONITOR"),UVM_LOW);
       repeat(3) @(posedge vif.PCLK); // Sync with APB clock
       tr.PWRITE = vif.PWRITE;
       tr.PADDR = vif.PADDR;
       tr.PWDATA = vif.PWDATA;
       tr.PRDATA = vif.PRDATA;
+   
+      `uvm_info("MON", $sformatf("PWRITE :%b PADDR : %0d PWDATA:%0d PRDATA:%0d", tr.PWRITE, tr.PADDR, tr.PWDATA, tr.PRDATA), UVM_NONE);
       mon_ap.write(tr);
-      `uvm_info("MON", $sformatf("PWRITE :%b PADDR : %0d PWDATA:%0d PRDATA:%0d", tr.PWRITE, tr.PADDR, tr.PWDATA, tr.PRDATA), UVM_NONE)
-    end
+
+ `uvm_info("MON",$sformatf("Writing is done in  MONITOR"),UVM_LOW);
+
+
+ end
   endtask
 endclass
 

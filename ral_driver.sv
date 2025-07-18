@@ -36,7 +36,10 @@ class apb_driver extends uvm_driver#(apb_transaction);
       tr.PRDATA = vif.PRDATA;
       @(posedge vif.PCLK);
       `uvm_info("DRV", $sformatf("Data Read -> RDATA: %0d", tr.PRDATA), UVM_NONE);
-    end
+ `uvm_info("drv",$sformatf("Drivingis done in  driver"),UVM_LOW);
+tr.print();      
+
+   end
   endtask
 endclass
 

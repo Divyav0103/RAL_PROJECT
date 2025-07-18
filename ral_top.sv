@@ -16,7 +16,7 @@ module tb;
 #10 PRESETn=0;
   end
   
-  always #10 CLK =~CLK;
+  always #5 CLK =~CLK;
   
   initial begin
     uvm_config_db#(virtual ral_if)::set(null,"*","vif",vif);
@@ -27,6 +27,5 @@ module tb;
   initial begin
     $dumpfile("dump.vcd");
     $dumpvars;
-    
   end
 endmodule
