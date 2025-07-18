@@ -8,7 +8,7 @@
 `include "ral_reg2.sv"
 `include "ral_reg3.sv"
 `include "ral_reg4.sv"
-`include "ral_generator.sv"
+//`include "ral_generator.sv"
 
 `include "ral_sequence.sv"
 
@@ -24,7 +24,7 @@
 
 `include "ral_env.sv"
 `include "ral_ctrl.sv"
-`include "ral_if.sv"
+// `include "ral_if.sv"
 `include "ral_test.sv"
-`
+
  

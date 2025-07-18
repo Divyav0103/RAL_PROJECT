@@ -1,6 +1,9 @@
+`include "uvm_pkg.sv"
 `include "ral_pkg.sv"
-
 `include "uvm_macros.svh"
+
+ `include "ral_if.sv"
+
 import uvm_pkg::*;
 
 module tb;
