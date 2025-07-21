@@ -3,13 +3,13 @@ class apb_monitor extends uvm_monitor;
   uvm_analysis_port #(apb_transaction) mon_ap;
   virtual ral_if vif;
   
- apb_transaction tr;
-
+  apb_transaction tr;
+  
   function new(string name="apb_monitor", uvm_component parent);
     super.new(name, parent);
   endfunction
-
-function void build_phase(uvm_phase phase);
+    
+  function void build_phase(uvm_phase phase);
     mon_ap = new("mon_ap",this);
     if(!uvm_config_db#(virtual ral_if)::get(this,"","vif",vif))
       `uvm_error("MON","Error getting interface handle")
@@ -19,7 +19,7 @@ function void build_phase(uvm_phase phase);
     apb_transaction tr;
     tr = apb_transaction::type_id::create("tr");
 
-  forever   begin
+  forever begin
       `uvm_info("MON",$sformatf("INISDE MONITOR"),UVM_LOW);
       repeat(3) @(posedge vif.PCLK); // Sync with APB clock
       tr.PWRITE = vif.PWRITE;
