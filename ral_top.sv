@@ -7,16 +7,16 @@ import uvm_pkg::*;
 import ral_pkg::*;
 
 module tb;
- bit CLK, PRESETn = 0;
+ bit PCLK, PRESETn = 0;
  
  initial begin
-  CLK = 0;
+  PCLK = 0;
   PRESETn = 1;
   #10 PRESETn = 0;
  end
 
- ral_if vif(.CLK(CLK),.PRESETn(PRESETn));
- top dut(.pclk(vif.CLK),
+ ral_if vif(.PCLK(PCLK),.PRESETn(PRESETn));
+ top dut(.pclk(vif.PCLK),
          .presetn(vif.PRESETn),
          .psel(vif.PSEL),
          .penable(vif.PENABLE),
@@ -25,7 +25,7 @@ module tb;
          .pwdata(vif.PWDATA),
          .prdata(vif.PRDATA));
  
- always #5 CLK = ~CLK;
+ always #5 PCLK = ~PCLK;
  
  initial begin
   uvm_config_db#(virtual ral_if)::set(null,"*","vif",vif);
