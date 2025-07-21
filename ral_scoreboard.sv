@@ -25,19 +25,17 @@ class apb_scoreboard extends uvm_scoreboard;
   endfunction
   
   virtual function void write(apb_transaction tr);
-$display("Entered scr"); 
+    `uvm_info("SCOREBOARD", $sformatf(-----------------------------------INISDE MONITOR---------------------------------------------),UVM_LOW);
   pkt_queue.push_back(tr);
   endfunction
 
 virtual task run_phase(uvm_phase phase);
-    ///`uvm_info("SCOREBOARD",$sformat("Scoreboard packet is recieved"),UVM_LOW);   
-
-     apb_transaction pkt;
-
-     forever begin
-       wait(pkt_queue.size() > 0);
-       pkt = pkt_queue.pop_front();
-
+  apb_transaction pkt;
+  
+  forever begin
+    wait(pkt_queue.size() > 0);
+    pkt = pkt_queue.pop_front();
+    
     if (pkt.PWRITE) begin
       expected_mem[pkt.PADDR] = pkt.PWDATA;
       `uvm_info("SCOREBOARD--------WRITE", $sformatf("WRITE: Addr = %0h, Data = %0d", pkt.PADDR, pkt.PWDATA), UVM_MEDIUM);
@@ -47,8 +45,8 @@ virtual task run_phase(uvm_phase phase);
       end else begin
         `uvm_info("SCOREBOARD---------MISMATCH", $sformatf("READ MATCH: Addr = %0h, Data = %0h", pkt.PADDR, pkt.PRDATA), UVM_MEDIUM);
       end
+      end
     end
-end
   endtask
 endclass
 
