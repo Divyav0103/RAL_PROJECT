@@ -15,7 +15,7 @@ module tb;
   #10 PRESETn = 0;
  end
 
- ral_if vif(CLK,PRESETn);
+ ral_if vif(.CLK(CLK),.PRESETn(PRESETn));
  top dut(.pclk(vif.CLK),
          .presetn(vif.PRESETn),
          .psel(vif.PSEL),
