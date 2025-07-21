@@ -1,5 +1,5 @@
 $date
-	Fri Jul 18 16:48:11 2025
+	Mon Jul 21 10:49:58 2025
 $end
 $version
 	QuestaSim Version 10.6c
@@ -12,9 +12,6 @@ $scope module uvm_root $end
 $upscope $end
 
 $scope module tb $end
-
-$scope module dut $end
-$upscope $end
 $upscope $end
 
 $scope begin uvm_pkg $end
