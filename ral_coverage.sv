@@ -1,54 +1,46 @@
+class apb_coverage extends uvm_subscriber#(apb_transaction);
+  `uvm_component_utils(apb_coverage)
 
+  virtual ral_if vif;
 
-class temp_reg extends uvm_reg;
-  `uvm_object_utils(temp_reg)
-  
-  rand uvm_reg_field temp;
+  covergroup apb_cg @(posedge vif.PCLK);
+    option.per_instance = 1;
 
-covergroup apb_cov;
-  option.per_instance = 1;
+    cp_addr: coverpoint vif.PADDR {
+      bins ctrl     = {32'h0};
+      bins reg1     = {32'h4};
+      bins reg2     = {32'h8};
+      bins reg3     = {32'hC};
+      bins reg4     = {32'h10};
+      bins others   = default;
+    }
 
-  // Address Coverage
-  coverpoint tr.PADDR {
-    bins addr_low = {[0:3]};
-    bins addr_mid = {[4:10]};
-    bins addr_high = {[11:15]};
-  }
+    cp_write: coverpoint vif.PWRITE {
+      bins write = {1};
+      bins read  = {0};
+    }
 
-  // Write Data Coverage
-  coverpoint tr.PWDATA {
-    bins data_low = {[0:84]};
-    bins data_mid = {[85:169]};
-    bins data_high = {[170:255]};
-  }
+    cp_rw_cross: cross cp_addr, cp_write;
 
-  // Read Data Coverage
-  coverpoint tr.PRDATA {
-    bins data_low = {[0:84]};
-    bins data_mid = {[85:169]};
-    bins data_high = {[170:255]};
-  }
+  endgroup
 
-  // Control Signal Coverage (Write vs Read)
-  coverpoint tr.PWRITE {
-    bins read  = {0}; // Read transaction
-    bins write = {1}; // Write transaction
-  }
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
+    apb_cg = new;
+  endfunction
 
-  // APB Transfer Control Coverage
-  coverpoint tr.PSEL {
-    bins active = {1}; // APB transfer active
-  }
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    if (!uvm_config_db#(virtual ral_if)::get(this, "", "vif", vif)) begin
+      `uvm_error("COV", "Unable to get interface for coverage")
+    end
+  endfunction
 
-  coverpoint tr.PENABLE {
-    bins enable = {1}; // APB enabled
-  }
+  virtual function void write(apb_transaction t);
+    apb_cg.sample();
+  endfunction
 
-  // Cross Coverage
-  cross tr.PWRITE, tr.PADDR;  // Read/Write vs Address
-  cross tr.PWRITE, tr.PWDATA; // Read/Write vs Data In
-  cross tr.PWRITE, tr.PRDATA; // Read/Write vs Data Out
-  cross tr.PSEL, tr.PENABLE, tr.PWRITE; // APB handshake process
-endgroup
+endclass
+
 
 
