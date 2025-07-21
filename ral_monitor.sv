@@ -20,7 +20,6 @@ class apb_monitor extends uvm_monitor;
     tr = apb_transaction::type_id::create("tr");
 
   forever begin
-    `uvm_info("MON",$sformatf("--------------------------------INISDE MONITOR-----------------------------------------"),UVM_LOW);
       repeat(3) @(posedge vif.PCLK); // Sync with APB clock
       tr.PWRITE = vif.PWRITE;
       tr.PADDR = vif.PADDR;
