@@ -51,5 +51,5 @@ module top
             endcase 
          end      
     end   
-assign prdata =  rdata_tmp; 
+assign prdata =  rdata_tmp;
 endmodule
