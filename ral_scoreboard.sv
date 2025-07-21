@@ -26,7 +26,7 @@ class apb_scoreboard extends uvm_scoreboard;
   
   virtual function void write(apb_transaction tr);
     pkt_queue.push_back(tr);
-    $display("------------------------------------------------------------------------------------------------------------------------------------------------------");
+    //$display("------------------------------------------------------------------------------------------------------------------------------------------------------");
   endfunction
 
 virtual task run_phase(uvm_phase phase);
