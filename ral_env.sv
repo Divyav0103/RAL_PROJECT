@@ -25,7 +25,7 @@ class apb_env extends uvm_env;
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     agent_inst.mon.mon_ap.connect(sc.mon_port);
-    agent_inst.mon.mon_ap.connect(cg.analysis_export);//
+    agent_inst.mon.mon_ap.connect(cg.mon_port);//
     
     regmodel.default_map.set_sequencer(.sequencer(agent_inst.seqr), .adapter(adapter_inst));
     regmodel.default_map.set_base_addr(32'h0000_0000); // APB Base Address
