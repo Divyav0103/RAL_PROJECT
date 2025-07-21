@@ -20,20 +20,18 @@ class apb_monitor extends uvm_monitor;
     tr = apb_transaction::type_id::create("tr");
 
   forever begin
-      `uvm_info("MON",$sformatf("INISDE MONITOR"),UVM_LOW);
+    `uvm_info("MON",$sformatf("-----------------------------------INISDE MONITOR---------------------------------------------"),UVM_LOW);
       repeat(3) @(posedge vif.PCLK); // Sync with APB clock
       tr.PWRITE = vif.PWRITE;
       tr.PADDR = vif.PADDR;
       tr.PWDATA = vif.PWDATA;
       tr.PRDATA = vif.PRDATA;
-   
-      `uvm_info("MON", $sformatf("PWRITE :%b PADDR : %0d PWDATA:%0d PRDATA:%0d", tr.PWRITE, tr.PADDR, tr.PWDATA, tr.PRDATA), UVM_NONE);
-      mon_ap.write(tr);
-
- `uvm_info("MON",$sformatf("Writing is done in  MONITOR"),UVM_LOW);
-
-
- end
-  endtask
+    
+    `uvm_info("MON", $sformatf("PWRITE :%b PADDR : %0d PWDATA:%0d PRDATA:%0d", tr.PWRITE, tr.PADDR, tr.PWDATA, tr.PRDATA), UVM_NONE);
+    mon_ap.write(tr);
+    `uvm_info("MON",$sformatf("-----------------------------------MONITOR DONE----------------------------------------------"),UVM_LOW);
+  
+  end
+ endtask
 endclass
 
