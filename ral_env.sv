@@ -3,6 +3,8 @@ class apb_env extends uvm_env;
   apb_reg_block regmodel;
   apb_adapter adapter_inst;
   apb_scoreboard sc;
+  apb_coverage    cg;//
+  
   `uvm_component_utils(apb_env)
 
   function new(string name = "apb_env", uvm_component parent = null);
@@ -17,11 +19,14 @@ class apb_env extends uvm_env;
     regmodel.build();
     adapter_inst = apb_adapter::type_id::create("adapter_inst", this);
     sc = apb_scoreboard::type_id::create("sc", this);
+    cg             = apb_coverage::type_id::create("cg", this);//
   endfunction
 
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     agent_inst.mon.mon_ap.connect(sc.mon_port);
+    agent_inst.mon.mon_ap.connect(cg.analysis_export);//
+    
     regmodel.default_map.set_sequencer(.sequencer(agent_inst.seqr), .adapter(adapter_inst));
     regmodel.default_map.set_base_addr(32'h0000_0000); // APB Base Address
   endfunction
