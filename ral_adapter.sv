@@ -1,6 +1,6 @@
 class apb_adapter extends uvm_reg_adapter;
   `uvm_object_utils (apb_adapter)
-
+  
   function new (string name = "apb_adapter");
     super.new (name);
   endfunction
