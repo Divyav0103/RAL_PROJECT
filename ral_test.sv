@@ -19,7 +19,7 @@ class apb_test extends uvm_test;
     trseq.regmodel = env.regmodel;
     trseq.start(env.agent_inst.seqr);
     phase.drop_objection(this);
-    phase.phase_done.set_drain_time(this, 200);
+    phase.phase_done.set_drain_time(this, 20);
   endtask
 endclass
 

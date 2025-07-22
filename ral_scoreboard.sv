@@ -26,7 +26,6 @@ class apb_scoreboard extends uvm_scoreboard;
   
   virtual function void write(apb_transaction tr);
     pkt_queue.push_back(tr);
-    //$display("------------------------------------------------------------------------------------------------------------------------------------------------------");
   endfunction
 
 virtual task run_phase(uvm_phase phase);
@@ -45,8 +44,9 @@ virtual task run_phase(uvm_phase phase);
       end else begin
         `uvm_info("SCOREBOARD---------MISMATCH", $sformatf("READ MATCH: Addr = %0h, Data = %0h", pkt.PADDR, pkt.PRDATA), UVM_MEDIUM);
       end
-      end
-    end
+     end
+        `uvm_info("SCOREBOARD", $sformatf("---------------------------------------SCOREBOARD DONE--------------------------------------"),UVM_LOW);
+     end
   endtask
 endclass
 
