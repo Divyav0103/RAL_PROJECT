@@ -1,5 +1,5 @@
-# vsim -c tb 
-# Start time: 11:14:34 on Jul 21,2025
+# vsim -c tb -do "run -all;quit" 
+# Start time: 10:26:52 on Jul 22,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: ral_top.sv(19): (vopt-2241) Connection width does not match width of port 'paddr'. The port definition is at: design.v(5).
 # //  Questa Sim
@@ -24,6 +24,7 @@
 # Loading work.tb(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
 # (C) 2007-2013 Mentor Graphics Corporation
@@ -49,43 +50,54 @@
 # UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
 # UVM_INFO ral_sequence.sv(16) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Initial Register Value : 0
 # UVM_INFO ral_driver.sv(34) @ 15: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> WDATA: 85
+# UVM_INFO ral_driver.sv(40) @ 15: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE---------------------------------------------
 # UVM_INFO ral_sequence.sv(24) @ 15: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Updated Register Value : 85
 # UVM_INFO ral_monitor.sv(29) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 4 PWDATA:85 PRDATA:0
+# UVM_INFO ral_monitor.sv(31) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] --------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(41) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 4, Data = 85
 # UVM_INFO ral_driver.sv(34) @ 35: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> WDATA: 170
+# UVM_INFO ral_driver.sv(40) @ 35: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE---------------------------------------------
 # UVM_INFO ral_sequence.sv(32) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Final Register Value : 170
 # UVM_INFO ral_monitor.sv(29) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(31) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] --------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(41) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
 # UVM_INFO ral_monitor.sv(29) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(31) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] --------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(41) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
 # UVM_INFO ral_monitor.sv(29) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(31) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] --------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(41) @ 115: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
 # UVM_INFO ral_monitor.sv(29) @ 145: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(31) @ 145: uvm_test_top.apb_env.agent_inst.mon [MON] --------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(41) @ 145: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
 # UVM_INFO ral_monitor.sv(29) @ 175: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(31) @ 175: uvm_test_top.apb_env.agent_inst.mon [MON] --------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(41) @ 175: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
 # UVM_INFO ral_monitor.sv(29) @ 205: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(31) @ 205: uvm_test_top.apb_env.agent_inst.mon [MON] --------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(41) @ 205: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
 # UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 235: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # UVM_INFO ral_monitor.sv(29) @ 235: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(31) @ 235: uvm_test_top.apb_env.agent_inst.mon [MON] --------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(41) @ 235: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   25
+# UVM_INFO :   35
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
 # [DRV]     2
-# [MON]     8
+# [MON]    16
 # [Questa UVM]     2
 # [RNTST]     1
 # [SCOREBOARD--------WRITE]     8
 # [SEQ]     3
 # [TEST_DONE]     1
+# [drv]     2
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 235 ns  Iteration: 53  Instance: /tb
-# End time: 11:14:39 on Jul 21,2025, Elapsed time: 0:00:05
+# End time: 10:26:54 on Jul 22,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 1

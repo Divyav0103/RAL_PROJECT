@@ -28,8 +28,7 @@ class apb_monitor extends uvm_monitor;
     
     `uvm_info("MON", $sformatf("PWRITE :%b PADDR : %0d PWDATA:%0d PRDATA:%0d", tr.PWRITE, tr.PADDR, tr.PWDATA, tr.PRDATA), UVM_NONE);
     mon_ap.write(tr);
-   // `uvm_info("MON",$sformatf("--------------------------------MONITOR DONE--------------------------------------------"),UVM_LOW);
-  
+    `uvm_info("MON",$sformatf("--------------------------------MONITOR DONE--------------------------------------------"),UVM_LOW);
   end
  endtask
 endclass
