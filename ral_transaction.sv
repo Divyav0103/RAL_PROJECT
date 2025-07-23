@@ -21,5 +21,8 @@ class apb_transaction extends uvm_sequence_item;
   function new(string name = "apb_transaction");
     super.new(name);
   endfunction
+
+constraint c0{
+PADDR inside {0, 4, 8, 12, 16};}
 endclass
 

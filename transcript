@@ -1,6 +1,7 @@
 # vsim -c tb -do "run -all;quit" 
-# Start time: 11:55:50 on Jul 22,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 10:02:33 on Jul 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: ral_top.sv(19): (vopt-2241) Connection width does not match width of port 'paddr'. The port definition is at: design.v(5).
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -47,17 +48,20 @@
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
 # UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
-# UVM_INFO ral_sequence.sv(16) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Initial Register Value : 0
+# UVM_INFO ral_sequence.sv(18) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Initial -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ral_sequence.sv(26) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 After Set -> Desired Value: 85, Mirrored Value: 0
 # UVM_INFO ral_driver.sv(34) @ 15: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> WDATA: 85
 # UVM_INFO ral_driver.sv(40) @ 15: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE---------------------------------------------
-# UVM_INFO ral_sequence.sv(24) @ 15: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Updated Register Value : 85
+# UVM_INFO ral_sequence.sv(32) @ 15: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 After Tx to DUT -> Desired Value: 85, Mirrored Value: 85
+# UVM_INFO ral_sequence.sv(37) @ 15: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Initial -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ral_sequence.sv(44) @ 15: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 After Set -> Desired Value: 170, Mirrored Value: 0
 # UVM_INFO ral_monitor.sv(29) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 4 PWDATA:85 PRDATA:0
 # UVM_INFO ral_monitor.sv(31) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(40) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 4, Data = 85
 # UVM_INFO ral_scoreboard.sv(48) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
 # UVM_INFO ral_driver.sv(34) @ 35: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> WDATA: 170
 # UVM_INFO ral_driver.sv(40) @ 35: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE---------------------------------------------
-# UVM_INFO ral_sequence.sv(32) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Final Register Value : 170
+# UVM_INFO ral_sequence.sv(49) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 -> Desired Value: 170, Mirrored Value: 170
 # UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 55: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # UVM_INFO ral_monitor.sv(29) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
 # UVM_INFO ral_monitor.sv(31) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
@@ -67,7 +71,7 @@
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   19
+# UVM_INFO :   22
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
@@ -78,10 +82,10 @@
 # [RNTST]     1
 # [SCOREBOARD]     2
 # [SCOREBOARD--------WRITE]     2
-# [SEQ]     3
+# [SEQ]     6
 # [TEST_DONE]     1
 # [drv]     2
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 55 ns  Iteration: 53  Instance: /tb
-# End time: 11:55:51 on Jul 22,2025, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
+# End time: 10:02:35 on Jul 23,2025, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 1

@@ -40,9 +40,9 @@ virtual task run_phase(uvm_phase phase);
       `uvm_info("SCOREBOARD--------WRITE", $sformatf("WRITE: Addr = %0h, Data = %0d", pkt.PADDR, pkt.PWDATA), UVM_MEDIUM);
     end else begin
       if (expected_mem[pkt.PADDR] !== pkt.PRDATA) begin
-        `uvm_error("SCOREBOARD----------MATCH", $sformatf("Mismatch at Addr = %0h, Expected = %0h, Received = %0h", pkt.PADDR, expected_mem[pkt.PADDR], pkt.PRDATA));
+        `uvm_error("SCOREBOARD----------MISMATCH", $sformatf("Mismatch at Addr = %0h, Expected = %0h, Received = %0h", pkt.PADDR, expected_mem[pkt.PADDR], pkt.PRDATA));
       end else begin
-        `uvm_info("SCOREBOARD---------MISMATCH", $sformatf("READ MATCH: Addr = %0h, Data = %0h", pkt.PADDR, pkt.PRDATA), UVM_MEDIUM);
+        `uvm_info("SCOREBOARD---------MATCH", $sformatf("READ MATCH: Addr = %0h, Data = %0h", pkt.PADDR, pkt.PRDATA), UVM_MEDIUM);
       end
      end
         `uvm_info("SCOREBOARD", $sformatf("---------------------------------------SCOREBOARD DONE--------------------------------------"),UVM_LOW);
