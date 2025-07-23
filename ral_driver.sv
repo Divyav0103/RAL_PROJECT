@@ -30,11 +30,11 @@ class apb_driver extends uvm_driver#(apb_transaction);
     
     if (tr.PWRITE) begin
       vif.PWDATA <= tr.PWDATA;
-      @(posedge vif.PCLK);
+     repeat(2)  @(posedge vif.PCLK);
       `uvm_info("DRV", $sformatf("Data Write -> WDATA: %0d", vif.PWDATA), UVM_NONE);
     end else begin
       tr.PRDATA = vif.PRDATA;
-      @(posedge vif.PCLK);
+      repeat(2)@(posedge vif.PCLK);
       `uvm_info("DRV", $sformatf("Data Read -> RDATA: %0d", tr.PRDATA), UVM_NONE);
        end
       `uvm_info("drv",$sformatf("-----------------------------------DRIVER DONE---------------------------------------------"),UVM_LOW);

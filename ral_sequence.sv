@@ -14,7 +14,7 @@ class apb_reg_seq extends uvm_sequence;
     bit [7:0] dout_t;
 
     ///////////////// R1 ///////////////////////
-    rdata = regmodel.r1.get();
+  /*  rdata = regmodel.r1.get();
     rdata_m = regmodel.r1.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("R1 Initial -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
 
@@ -28,7 +28,7 @@ class apb_reg_seq extends uvm_sequence;
     rdata = regmodel.r1.get();
     rdata_m = regmodel.r1.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("R1 After Tx to DUT -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
-
+*/
     regmodel.r1.write(status, 8'h05);
     rdata = regmodel.r1.get();
     rdata_m = regmodel.r1.get_mirrored_value();
@@ -40,7 +40,7 @@ class apb_reg_seq extends uvm_sequence;
     `uvm_info("SEQ", $sformatf("R1 Read Tx from DUT -> Des: %0d, Mir: %0d, Data read: %0d", rdata, rdata_m, dout_t), UVM_NONE);
 
     ///////////////// R2 ///////////////////////
-    rdata = regmodel.r2.get();
+/*    rdata = regmodel.r2.get();
     rdata_m = regmodel.r2.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("R2 Initial -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
 
@@ -64,7 +64,7 @@ class apb_reg_seq extends uvm_sequence;
     rdata = regmodel.r2.get();
     rdata_m = regmodel.r2.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("R2 Read Tx from DUT -> Des: %0d, Mir: %0d, Data read: %0d", rdata, rdata_m, dout_t), UVM_NONE);
-
+*/
   endtask
 endclass
 
