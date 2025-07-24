@@ -13,18 +13,18 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim $ 
-# Start time: 13:01:49 on Jul 24,2025
+# Start time: 14:23:56 on Jul 24,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Error: (vopt-13130) Failed to find design unit $.
 #         Searched libraries:
 #             work
 # Optimization failed
 # Error loading design
-# End time: 13:01:49 on Jul 24,2025, Elapsed time: 0:00:00
+# End time: 14:23:56 on Jul 24,2025, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 vlog ral_top.sv
 # QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
-# Start time: 13:01:57 on Jul 24,2025
+# Start time: 14:24:12 on Jul 24,2025
 # vlog -reportprogress 300 ral_top.sv 
 # ** Note: (vlog-2286) ral_top.sv(2): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 # -- Compiling package ral_top_sv_unit
@@ -36,11 +36,11 @@ vlog ral_top.sv
 # 
 # Top level modules:
 # 	tb
-# End time: 13:01:58 on Jul 24,2025, Elapsed time: 0:00:01
+# End time: 14:24:12 on Jul 24,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -c -novopt -suppress 12110 tb
-# vsim -c -novopt -suppress 12110 tb 
-# Start time: 13:02:12 on Jul 24,2025
+vsim -novopt -suppress 12110 tb
+# vsim -novopt -suppress 12110 tb 
+# Start time: 14:24:28 on Jul 24,2025
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/work.tb
 # Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/work.ral_top_sv_unit
@@ -79,51 +79,107 @@ run -all
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
 # UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
-# UVM_INFO ral_sequence.sv(41) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Initial Value -> Desired Value : 0 and Mirrored Value : 0
-# UVM_INFO ral_sequence.sv(47) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After update -> Desired: 170, Mirrored: 0, Read: 0
-# UVM_INFO ral_driver.sv(37) @ 25: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : aa
-# UVM_INFO ral_monitor.sv(30) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_sequence.sv(18) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 Initial Value -> Desired Value : 0 and Mirrored Value : 0
+# UVM_INFO ral_sequence.sv(24) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After update -> Desired: 85, Mirrored: 0, Read: 0
+# UVM_INFO ral_driver.sv(37) @ 25: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : 55
+# UVM_INFO ral_monitor.sv(30) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 4 PWDATA:85 PRDATA:0
 # UVM_INFO ral_monitor.sv(32) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_INFO ral_scoreboard.sv(40) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
+# UVM_INFO ral_scoreboard.sv(40) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 4, Data = 85
 # UVM_INFO ral_scoreboard.sv(48) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
 # UVM_INFO ral_driver.sv(57) @ 35: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(53) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After write -> Desired: 170, Mirrored: 170, Read: 0
-# UVM_INFO ral_monitor.sv(30) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_sequence.sv(30) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After write -> Desired: 85, Mirrored: 85, Read: 0
+# UVM_INFO ral_monitor.sv(30) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 4 PWDATA:85 PRDATA:0
 # UVM_INFO ral_monitor.sv(32) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_ERROR ral_scoreboard.sv(43) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 8, Expected = aa, Received = 0
+# UVM_ERROR ral_scoreboard.sv(43) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 4, Expected = 55, Received = 0
 # UVM_INFO ral_scoreboard.sv(48) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
 # UVM_INFO ral_driver.sv(51) @ 65: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : 0
 # UVM_INFO ral_driver.sv(57) @ 75: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(57) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After read  -> Desired: 0, Mirrored: 0, Read: 0
-# UVM_INFO ral_monitor.sv(30) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:170 PRDATA:170
+# UVM_INFO ral_sequence.sv(34) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After read  -> Desired: 0, Mirrored: 0, Read: 0
+# UVM_INFO ral_sequence.sv(41) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg2 Initial Value -> Desired Value : 0 and Mirrored Value : 0
+# UVM_INFO ral_sequence.sv(47) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg2 After update -> Desired: 170, Mirrored: 0, Read: 0
+# UVM_INFO ral_monitor.sv(30) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 4 PWDATA:85 PRDATA:85
 # UVM_INFO ral_monitor.sv(32) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_INFO ral_scoreboard.sv(45) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 8, Data = aa
+# UVM_INFO ral_scoreboard.sv(45) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 4, Data = 55
 # UVM_INFO ral_scoreboard.sv(48) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 95: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ral_driver.sv(37) @ 105: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : aa
+# UVM_INFO ral_monitor.sv(30) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:85
+# UVM_INFO ral_monitor.sv(32) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 115: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_scoreboard.sv(40) @ 115: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
+# UVM_INFO ral_scoreboard.sv(48) @ 115: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_sequence.sv(53) @ 115: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg2 After write -> Desired: 170, Mirrored: 170, Read: 0
+# UVM_INFO ral_driver.sv(51) @ 145: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : 55
+# UVM_INFO ral_monitor.sv(30) @ 145: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:170 PRDATA:85
+# UVM_INFO ral_monitor.sv(32) @ 145: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 145: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 8, Expected = aa, Received = 55
+# UVM_INFO ral_scoreboard.sv(48) @ 145: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 155: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(57) @ 155: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg2 After read  -> Desired: 85, Mirrored: 85, Read: 85
+# UVM_INFO ral_sequence.sv(63) @ 155: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg3 Initial Value -> Desired Value : 0 and Mirrored Value : 0
+# UVM_INFO ral_sequence.sv(69) @ 155: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg3 After update -> Desired: 255, Mirrored: 0, Read: 85
+# UVM_INFO ral_monitor.sv(30) @ 175: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 12 PWDATA:255 PRDATA:170
+# UVM_INFO ral_monitor.sv(32) @ 175: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_scoreboard.sv(40) @ 175: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = c, Data = 255
+# UVM_INFO ral_scoreboard.sv(48) @ 175: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(37) @ 185: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : ff
+# UVM_INFO ral_driver.sv(57) @ 195: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(75) @ 195: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg3 After write -> Desired: 255, Mirrored: 255, Read: 85
+# UVM_INFO ral_monitor.sv(30) @ 205: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 12 PWDATA:255 PRDATA:170
+# UVM_INFO ral_monitor.sv(32) @ 205: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_scoreboard.sv(40) @ 205: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = c, Data = 255
+# UVM_INFO ral_scoreboard.sv(48) @ 205: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(51) @ 225: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : aa
+# UVM_INFO ral_monitor.sv(30) @ 235: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 12 PWDATA:255 PRDATA:170
+# UVM_INFO ral_monitor.sv(32) @ 235: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 235: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 235: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = c, Expected = ff, Received = aa
+# UVM_INFO ral_scoreboard.sv(48) @ 235: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_sequence.sv(79) @ 235: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg3 After read  -> Desired: 170, Mirrored: 170, Read: 170
+# UVM_INFO ral_sequence.sv(85) @ 235: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg4 Initial Value -> Desired Value : 0 and Mirrored Value : 0
+# UVM_INFO ral_sequence.sv(91) @ 235: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg4 After update -> Desired: 60, Mirrored: 0, Read: 170
+# UVM_INFO ral_driver.sv(37) @ 265: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : 3c
+# UVM_INFO ral_monitor.sv(30) @ 265: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 0 PWDATA:60 PRDATA:255
+# UVM_INFO ral_monitor.sv(32) @ 265: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_scoreboard.sv(40) @ 265: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 0, Data = 60
+# UVM_INFO ral_scoreboard.sv(48) @ 265: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 275: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(97) @ 275: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg4 After write -> Desired: 60, Mirrored: 60, Read: 170
+# UVM_INFO ral_monitor.sv(30) @ 295: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 0 PWDATA:60 PRDATA:255
+# UVM_INFO ral_monitor.sv(32) @ 295: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 295: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 0, Expected = 3c, Received = ff
+# UVM_INFO ral_scoreboard.sv(48) @ 295: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(51) @ 305: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : ff
+# UVM_INFO ral_driver.sv(57) @ 315: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(101) @ 315: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg4 After read  -> Desired: 255, Mirrored: 255, Read: 255
+# UVM_INFO ral_monitor.sv(30) @ 325: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 0 PWDATA:60 PRDATA:12
+# UVM_INFO ral_monitor.sv(32) @ 325: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 325: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 0, Expected = 3c, Received = c
+# UVM_INFO ral_scoreboard.sv(48) @ 325: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 335: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   23
+# UVM_INFO :   75
 # UVM_WARNING :    0
-# UVM_ERROR :    1
+# UVM_ERROR :    5
 # UVM_FATAL :    0
 # ** Report counts by id
-# [DRV]     2
-# [MON]     6
+# [DRV]     8
+# [MON]    22
 # [Questa UVM]     2
 # [RNTST]     1
-# [SCOREBOARD]     3
-# [SCOREBOARD----------MISMATCH]     1
+# [SCOREBOARD]    11
+# [SCOREBOARD----------MISMATCH]     5
 # [SCOREBOARD---------MATCH]     1
-# [SCOREBOARD--------WRITE]     1
-# [SEQ]     4
+# [SCOREBOARD--------WRITE]     5
+# [SEQ]    16
 # [TEST_DONE]     1
-# [drv]     2
+# [drv]     8
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 95 ns  Iteration: 53  Instance: /tb
+#    Time: 335 ns  Iteration: 53  Instance: /tb
 # 1
 # Break in Task uvm_pkg/uvm_root::run_test at /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
 quit
-# End time: 13:03:11 on Jul 24,2025, Elapsed time: 0:00:59
+# End time: 14:25:52 on Jul 24,2025, Elapsed time: 0:01:24
 # Errors: 0, Warnings: 1
