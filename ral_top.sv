@@ -7,7 +7,7 @@ import uvm_pkg::*;
 import ral_pkg::*;
 
 module tb;
- bit PCLK, PRESETn = 0;
+ bit PCLK, PRESETn;
  
  initial begin
   PCLK = 0;

@@ -116,7 +116,7 @@ class apb_reg_block extends uvm_reg_block;
     lock_model();
   endfunction
 endclass
-/*
+
 module tb;
   top_reg_block t1;
   initial begin
@@ -124,4 +124,4 @@ module tb;
     t1.build();
   end
 endmodule
-*/
+

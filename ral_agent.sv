@@ -6,13 +6,13 @@ class apb_agent extends uvm_agent;
   endfunction
 
   apb_driver drv;
-  uvm_sequencer#(apb_transaction) seqr;
+  apb_sequencer seqr;
   apb_monitor mon;
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     drv = apb_driver::type_id::create("drv", this);
-    seqr = uvm_sequencer#(apb_transaction)::type_id::create("seqr", this);
+    seqr = apb_sequencer::type_id::create("seqr", this);
     mon = apb_monitor::type_id::create("mon", this);
   endfunction
 

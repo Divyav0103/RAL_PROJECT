@@ -8,63 +8,49 @@ class apb_reg_seq extends uvm_sequence;
   endfunction
 
   task body;
-    uvm_status_e status;
-    bit [7:0] rdata;
-    bit [7:0] rdata_m;
-    bit [7:0] dout_t;
+    uvm_status_e     status;
+    uvm_reg_data_t   rdata;
+    uvm_reg_data_t   rdata_mirror;
+    uvm_reg_data_t   dout_t;
 
     ///////////////// R1 ///////////////////////
-  /*  rdata = regmodel.r1.get();
-    rdata_m = regmodel.r1.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R1 Initial -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
+    rdata = regmodel.r1.get();
+    rdata_mirror = regmodel.r1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R1 Initial -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_mirror), UVM_NONE);
 
     regmodel.r1.set(8'h55);
-
-    rdata = regmodel.r1.get();
-    rdata_m = regmodel.r1.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R1 After Set -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
-
     regmodel.r1.update(status);
-    rdata = regmodel.r1.get();
-    rdata_m = regmodel.r1.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R1 After Tx to DUT -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
-*/
-    regmodel.r1.write(status, 8'h05);
-    rdata = regmodel.r1.get();
-    rdata_m = regmodel.r1.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R1 Write Tx to DUT -> Des: %0d, Mir: %0d", rdata, rdata_m), UVM_NONE);
 
-    regmodel.r1.read(status, dout_t);
     rdata = regmodel.r1.get();
-    rdata_m = regmodel.r1.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R1 Read Tx from DUT -> Des: %0d, Mir: %0d, Data read: %0d", rdata, rdata_m, dout_t), UVM_NONE);
+    rdata_mirror = regmodel.r1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R1 After Set -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_mirror), UVM_NONE);
+ 
+    regmodel.r1.write(status, 8'h05);
+    regmodel.r1.read(status, dout_t);
+
+    rdata = regmodel.r1.get();
+    rdata_mirror = regmodel.r1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R1 FINAL -> Des: %0d, Mirrored: %0d, Read data: %0d", rdata, rdata_mirror, dout_t), UVM_NONE);
 
     ///////////////// R2 ///////////////////////
-/*    rdata = regmodel.r2.get();
-    rdata_m = regmodel.r2.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R2 Initial -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
+    rdata = regmodel.r2.get();
+    rdata_mirror = regmodel.r2.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R2 Initial -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_mirror), UVM_NONE);
 
     regmodel.r2.set(8'hAA);
-
-    rdata = regmodel.r2.get();
-    rdata_m = regmodel.r2.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R2 After Set -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
-
     regmodel.r2.update(status);
+
     rdata = regmodel.r2.get();
-    rdata_m = regmodel.r2.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R2 After Tx to DUT -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_m), UVM_NONE);
+    rdata_mirror = regmodel.r2.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R2 After Set -> Desired Value: %0d, Mirrored Value: %0d", rdata, rdata_mirror), UVM_NONE);
 
     regmodel.r2.write(status, 8'h0F);
-    rdata = regmodel.r2.get();
-    rdata_m = regmodel.r2.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R2 Write Tx to DUT -> Des: %0d, Mir: %0d", rdata, rdata_m), UVM_NONE);
-
     regmodel.r2.read(status, dout_t);
+
     rdata = regmodel.r2.get();
-    rdata_m = regmodel.r2.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R2 Read Tx from DUT -> Des: %0d, Mir: %0d, Data read: %0d", rdata, rdata_m, dout_t), UVM_NONE);
-*/
+    rdata_mirror = regmodel.r2.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R2 FINAL  -> Des: %0d, Mir: %0d, Data read: %0d", rdata, rdata_mirror, dout_t), UVM_NONE);
+
   endtask
 endclass
 

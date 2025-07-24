@@ -1,5 +1,6 @@
 class apb_monitor extends uvm_monitor;
   `uvm_component_utils(apb_monitor)
+
   uvm_analysis_port #(apb_transaction) mon_ap;
   virtual ral_if vif;
   

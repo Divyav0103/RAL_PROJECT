@@ -15,9 +15,12 @@ class apb_env extends uvm_env;
     super.build_phase(phase);
     agent_inst = apb_agent::type_id::create("agent_inst", this);
     regmodel = apb_reg_block::type_id::create("regmodel", this);
-    regmodel.build();
     adapter_inst = apb_adapter::type_id::create("adapter_inst", this);
     sc = apb_scoreboard::type_id::create("sc", this);
+
+    regmodel.configure(null, "");
+    regmodel.build();
+    regmodel.lock_model();
   endfunction
 
   function void connect_phase(uvm_phase phase);
