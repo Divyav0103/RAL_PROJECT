@@ -3,7 +3,7 @@ class apb_transaction extends uvm_sequence_item;
   rand bit PWRITE;
   rand bit PSEL;
   rand bit PENABLE;
-  rand bit [3:0] PADDR;
+  rand bit [31:0] PADDR;
   rand bit [31:0] PWDATA;
        bit [31:0] PRDATA;
   
