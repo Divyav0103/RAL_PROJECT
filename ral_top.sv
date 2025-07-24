@@ -2,17 +2,17 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;  
 `include "ral_pkg.sv"
-`include "ral_if.sv"
+//`include "ral_if.sv"
 `include "design.v"
-import ral_pkg::*;
+//import ral_pkg::*;
 
 module tb;
  bit PCLK, PRESETn;
  
  initial begin
   PCLK = 0;
-  PRESETn = 1;
-  #10 PRESETn = 0;
+  PRESETn = 0;
+  #10 PRESETn = 1;
  end
 
  ral_if vif(.PCLK(PCLK),.PRESETn(PRESETn));

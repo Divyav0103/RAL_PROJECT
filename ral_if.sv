@@ -1,9 +1,9 @@
-interface ral_if(input logic PCLK, input logic PRESETn);
+interface ral_if(input logic PCLK, input bit PRESETn);
  
   logic        PSEL;
   logic        PENABLE;
   logic        PWRITE;
-  logic [3:0]  PADDR;
+  logic [31:0]  PADDR;
   logic [31:0] PWDATA;
   logic [31:0] PRDATA;
 /* 

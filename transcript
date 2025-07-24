@@ -1,7 +1,3 @@
-# vsim -c tb -do "run -all;quit" 
-# Start time: 11:28:51 on Jul 24,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: ral_top.sv(19): (vopt-2241) Connection width does not match width of port 'paddr'. The port definition is at: design.v(5).
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -16,15 +12,50 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+# vsim $ 
+# Start time: 13:01:49 on Jul 24,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-13130) Failed to find design unit $.
+#         Searched libraries:
+#             work
+# Optimization failed
+# Error loading design
+# End time: 13:01:49 on Jul 24,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog ral_top.sv
+# QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
+# Start time: 13:01:57 on Jul 24,2025
+# vlog -reportprogress 300 ral_top.sv 
+# ** Note: (vlog-2286) ral_top.sv(2): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package ral_top_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling interface ral_if
+# -- Compiling module tb
+# -- Compiling module top
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 13:01:58 on Jul 24,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim -c -novopt -suppress 12110 tb
+# vsim -c -novopt -suppress 12110 tb 
+# Start time: 13:02:12 on Jul 24,2025
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/work.tb
+# Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/work.ral_top_sv_unit
 # Loading sv_std.std
-# Loading work.ral_if(fast)
 # Loading mtiUvm.uvm_pkg
-# Loading work.ral_pkg(fast)
-# Loading work.ral_top_sv_unit(fast)
-# Loading work.tb(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.ral_top_sv_unit
+# Loading work.tb
+# Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/work.ral_if
+# Loading work.ral_if
+# Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/work.top
+# Loading work.top
+# Loading mtiUvm.questa_uvm_pkg
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
-# run -all
+add wave -position insertpoint sim:/tb/dut/*
+run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
 # (C) 2007-2013 Mentor Graphics Corporation
@@ -45,70 +76,54 @@
 # 
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_monitor' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_scoreboard' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_agent' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_env' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_test' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_driver' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_sequencer' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'slv_ctrl' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'slv_reg1' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'slv_reg2' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'slv_reg3' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'slv_reg4' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_reg_block' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_transaction' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_adapter' already registered with factory. No string-based lookup support for multiple types with the same type name.
-# UVM_WARNING @ 0: reporter [TPRGED] Type name 'apb_reg_seq' already registered with factory. No string-based lookup support for multiple types with the same type name.
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
 # UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
-# UVM_INFO ral_driver.sv(47) @ 25: uvm_test_top.apb_env.agent_inst.drv [DRV] Data WRITE -> ADDR: 0x4, DATA: 0x5
-# UVM_INFO ral_monitor.sv(29) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 4 PWDATA:5 PRDATA:0
-# UVM_INFO ral_monitor.sv(31) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_INFO ral_scoreboard.sv(40) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 4, Data = 5
+# UVM_INFO ral_sequence.sv(41) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Initial Value -> Desired Value : 0 and Mirrored Value : 0
+# UVM_INFO ral_sequence.sv(47) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After update -> Desired: 170, Mirrored: 0, Read: 0
+# UVM_INFO ral_driver.sv(37) @ 25: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : aa
+# UVM_INFO ral_monitor.sv(30) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(32) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_scoreboard.sv(40) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 170
 # UVM_INFO ral_scoreboard.sv(48) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
 # UVM_INFO ral_driver.sv(57) @ 35: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(35) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Write Tx to DUT -> Des: 5, Mir: 5
-# UVM_INFO ral_monitor.sv(29) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 4 PWDATA:0 PRDATA:0
-# UVM_INFO ral_monitor.sv(31) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_ERROR ral_scoreboard.sv(43) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 4, Expected = 5, Received = 0
+# UVM_INFO ral_sequence.sv(53) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After write -> Desired: 170, Mirrored: 170, Read: 0
+# UVM_INFO ral_monitor.sv(30) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:170 PRDATA:0
+# UVM_INFO ral_monitor.sv(32) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 8, Expected = aa, Received = 0
 # UVM_INFO ral_scoreboard.sv(48) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(45) @ 85: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> ADDR: 0x4, DATA: 0x0
-# UVM_INFO ral_monitor.sv(29) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 4 PWDATA:0 PRDATA:0
-# UVM_INFO ral_monitor.sv(31) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_ERROR ral_scoreboard.sv(43) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 4, Expected = 5, Received = 0
+# UVM_INFO ral_driver.sv(51) @ 65: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : 0
+# UVM_INFO ral_driver.sv(57) @ 75: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(57) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reg1 After read  -> Desired: 0, Mirrored: 0, Read: 0
+# UVM_INFO ral_monitor.sv(30) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:170 PRDATA:170
+# UVM_INFO ral_monitor.sv(32) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_scoreboard.sv(45) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 8, Data = aa
 # UVM_INFO ral_scoreboard.sv(48) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(57) @ 95: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(40) @ 95: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Read Tx from DUT -> Des: 0, Mir: 0, Data read: 0
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 115: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO ral_monitor.sv(29) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 0 PWDATA:0 PRDATA:0
-# UVM_INFO ral_monitor.sv(31) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_INFO ral_scoreboard.sv(45) @ 115: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 0, Data = 0
-# UVM_INFO ral_scoreboard.sv(48) @ 115: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 95: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   24
-# UVM_WARNING :   16
-# UVM_ERROR :    2
+# UVM_INFO :   23
+# UVM_WARNING :    0
+# UVM_ERROR :    1
 # UVM_FATAL :    0
 # ** Report counts by id
 # [DRV]     2
-# [MON]     8
+# [MON]     6
 # [Questa UVM]     2
 # [RNTST]     1
-# [SCOREBOARD]     4
-# [SCOREBOARD----------MISMATCH]     2
+# [SCOREBOARD]     3
+# [SCOREBOARD----------MISMATCH]     1
 # [SCOREBOARD---------MATCH]     1
 # [SCOREBOARD--------WRITE]     1
-# [SEQ]     2
+# [SEQ]     4
 # [TEST_DONE]     1
-# [TPRGED]    16
 # [drv]     2
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 115 ns  Iteration: 53  Instance: /tb
-# End time: 11:28:54 on Jul 24,2025, Elapsed time: 0:00:03
+#    Time: 95 ns  Iteration: 53  Instance: /tb
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+quit
+# End time: 13:03:11 on Jul 24,2025, Elapsed time: 0:00:59
 # Errors: 0, Warnings: 1
