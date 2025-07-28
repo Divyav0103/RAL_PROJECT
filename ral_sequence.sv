@@ -56,6 +56,8 @@ UVM_NONE);
     rdata_m = regmodel.r2.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("Reg2 After read  -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m,dout_t), UVM_NONE);
 
+
+
 ////////////////////////////R3///////////////////////////////    
     rdata = regmodel.r3.get();
     rdata_m = regmodel.r3.get_mirrored_value();
@@ -100,6 +102,36 @@ UVM_NONE);
     rdata_m = regmodel.r4.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("Reg4 After read  -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m,dout_t), UVM_NONE);
 
+endtask
+endclass
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class top_reg_seq extends uvm_sequence;
+`uvm_object_utils(top_reg_seq)
+apb_reg_block regmodel;
+function new (string name = "top_reg_seq"); 
+super.new(name); 
+endfunction
+task body; 
+uvm_status_e status;
+bit [31:0] rdata,rdata_m;
+bit [31:0] rst_reg;
+bit rst_status;
+//////Check if register has reset value
+rst_status = regmodel.r2.has_reset();
+`uvm_info("SEQ", $sformatf("Reset Value added : %0h ", rst_status), UVM_NONE);
+//////accessing default reset value
+rst_reg = regmodel.r2.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : %0h ", rst_reg), UVM_NONE);
+////////////////accessing mir and des before rst
+rdata = regmodel.r2.get();
+rdata_m = regmodel.r2.get_mirrored_value();
+`uvm_info("SEQ", $sformatf("Before Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+///////////////mir and des value after rst
+$display("--------------Applying Reset to register model ---------------");
+regmodel.r2.reset();
+rdata = regmodel.r2.get();
+rdata_m = regmodel.r2.get_mirrored_value();
+`uvm_info("SEQ", $sformatf("After Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
 endtask
 endclass
