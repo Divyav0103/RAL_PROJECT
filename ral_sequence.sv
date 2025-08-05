@@ -193,6 +193,5 @@ regmodel.r4.peek(status, rdata);
 des = regmodel.r4.get();
 mir = regmodel.r4.get_mirrored_value();
 `uvm_info("SEQ", $sformatf("R4 Des: %0d Mir: %0d", des, mir), UVM_NONE);
-
 endtask
 endclass
