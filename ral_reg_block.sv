@@ -17,8 +17,28 @@ class slv_reg1 extends uvm_reg;
   `uvm_object_utils(slv_reg1)
   rand uvm_reg_field reg1;
 
+   ////coverpoint
+  covergroup r1_cov;
+    option.per_instance = 1;
+    coverpoint reg1.value[7:0] {
+      bins lower = {[0:63]};
+      bins mid = {[64:127]};
+      bins high = {[128:255]};}
+  endgroup
+
   function new(string name="slv_reg1");
-    super.new(name, 32, UVM_NO_COVERAGE);
+    super.new(name, 32, UVM_CVR_FIELD_VALS);
+    if(has_coverage(UVM_CVR_FIELD_VALS))
+      r1_cov = new();
+  endfunction
+    
+  virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+    r1_cov.sample();
+  endfunction
+    
+  virtual function void sample_values();
+    super.sample_values();
+    r1_cov.sample();
   endfunction
 
   function void build();
