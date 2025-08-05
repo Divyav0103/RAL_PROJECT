@@ -21,9 +21,9 @@ class slv_reg1 extends uvm_reg;
   covergroup r1_cov;
     option.per_instance = 1;
     coverpoint reg1.value[7:0] {
-      bins lower = {[0:63]};
-      bins mid = {[64:127]};
-      bins high = {[128:255]};}
+//      bins lower = {[0:63]};
+      bins mid = {[64:127]};}
+  //    bins high = {[128:255]};}
   endgroup
 
   function new(string name="slv_reg1");
@@ -56,8 +56,8 @@ class slv_reg2 extends uvm_reg;
   covergroup r2_cov;
     option.per_instance = 1;
     coverpoint reg2.value[7:0] {
-      bins lower = {[0:63]};
-      bins mid = {[64:127]};
+    //  bins lower = {[0:63]};
+    //  bins mid = {[64:127]};
       bins high = {[128:255]};}
   endgroup
 
@@ -90,8 +90,8 @@ class slv_reg3 extends uvm_reg;
   covergroup r3_cov;
     option.per_instance = 1;
     coverpoint reg3.value[7:0]{
-      bins lower = {[0:63]};
-      bins mid = {[64:127]};
+      //bins lower = {[0:63]};
+      //bins mid = {[64:127]};
       bins high = {[128:255]};}
 endgroup
     
@@ -124,9 +124,9 @@ class slv_reg4 extends uvm_reg;
   covergroup r4_cov;
     option.per_instance = 1;
     coverpoint reg4.value[7:0]{
-      bins lower = {[0:63]};
-      bins mid = {[64:127]};
-      bins high = {[128:255]};}
+      bins lower = {[0:63]};}
+     // bins mid = {[64:127]};
+     // bins high = {[128:255]};}
 endgroup
 
   function new(string name="slv_reg4");

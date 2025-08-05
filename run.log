@@ -1,6 +1,9 @@
 # vsim -vopt work.tb -voptargs="+acc=npr" -assertdebug -l run.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; coverage report -detail;run -all; exit" 
-# Start time: 12:15:38 on Aug 05,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Start time: 12:32:34 on Aug 05,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: ral_reg_block.sv(175): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: ral_reg_block.sv(182): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: ral_reg_block.sv(189): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -1189,7 +1192,7 @@
 # Statement Coverage:
 #     Enabled Coverage            Active      Hits    Misses % Covered
 #     ----------------            ------      ----    ------ ---------
-#     Stmts                          120         0       120       0.0
+#     Stmts                          124         0       124       0.0
 # 
 # ================================Statement Details================================
 # 
@@ -1232,221 +1235,241 @@
 #     17             10                    ***0***     
 #     18                                                 rand uvm_reg_field reg1;
 #     19                                               
-#     20                                                 function new(string name="slv_reg1");
-#     21              1                    ***0***         super.new(name, 32, UVM_NO_COVERAGE);
-#     22                                                 endfunction
-#     23                                               
-#     24                                                 function void build();
-#     25              1                    ***0***         reg1 = uvm_reg_field::type_id::create("reg1");
-#     26              1                    ***0***         reg1.configure(this, 32, 0, "RW", 0, 32'hA5A5_0000, 1, 1, 1);
-#     27                                               
-#     28                                                 endfunction
-#     29                                               endclass
-#     30                                               
-#     31                                               class slv_reg2 extends uvm_reg;
-#     32              1                    ***0***       `uvm_object_utils(slv_reg2)
-#     32              2                    ***0***     
-#     32              3                    ***0***     
-#     32              4                    ***0***     
-#     32              5                    ***0***     
-#     32              6                    ***0***     
-#     32              7                    ***0***     
-#     32              8                    ***0***     
-#     32              9                    ***0***     
-#     32             10                    ***0***     
-#     33                                                 rand uvm_reg_field reg2;
-#     34                                                 
-#     35                                                 ////coverpoint
-#     36                                                 covergroup r2_cov;
-#     37                                                   option.per_instance = 1;
-#     38                                                   coverpoint reg2.value[7:0] {
-#     39                                                     bins lower = {[0:63]};
-#     40                                                     bins mid = {[64:127]};
-#     41                                                     bins high = {[128:255]};}
-#     42                                                 endgroup
+#     20                                                  ////coverpoint
+#     21                                                 covergroup r1_cov;
+#     22                                                   option.per_instance = 1;
+#     23                                                   coverpoint reg1.value[7:0] {
+#     24                                               //      bins lower = {[0:63]};
+#     25                                                     bins mid = {[64:127]};}
+#     26                                                 //    bins high = {[128:255]};}
+#     27                                                 endgroup
+#     28                                               
+#     29                                                 function new(string name="slv_reg1");
+#     30              1                    ***0***         super.new(name, 32, UVM_CVR_FIELD_VALS);
+#     31                                                   if(has_coverage(UVM_CVR_FIELD_VALS))
+#     32              1                    ***0***           r1_cov = new();
+#     33                                                 endfunction
+#     34                                                   
+#     35                                                 virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+#     36              1                    ***0***         r1_cov.sample();
+#     37                                                 endfunction
+#     38                                                   
+#     39                                                 virtual function void sample_values();
+#     40              1                    ***0***         super.sample_values();
+#     41              1                    ***0***         r1_cov.sample();
+#     42                                                 endfunction
 #     43                                               
-#     44                                                 function new(string name="reg2");
-#     45              1                    ***0***         super.new(name, 32, UVM_CVR_FIELD_VALS);
-#     46                                                   if(has_coverage(UVM_CVR_FIELD_VALS))
-#     47              1                    ***0***           r2_cov = new();
+#     44                                                 function void build();
+#     45              1                    ***0***         reg1 = uvm_reg_field::type_id::create("reg1");
+#     46              1                    ***0***         reg1.configure(this, 32, 0, "RW", 0, 32'hA5A5_0000, 1, 1, 1);
+#     47                                               
 #     48                                                 endfunction
-#     49                                                   
-#     50                                                 virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
-#     51              1                    ***0***         r2_cov.sample();
-#     52                                                 endfunction
-#     53                                                   
-#     54                                                 virtual function void sample_values();
-#     55              1                    ***0***         super.sample_values();
-#     56              1                    ***0***         r2_cov.sample();
-#     57                                                 endfunction
-#     58                                               
-#     59                                                 function void build();
-#     60              1                    ***0***         reg2 = uvm_reg_field::type_id::create("reg2");
-#     61              1                    ***0***         reg2.configure(this, 32, 0, "RW", 0,  32'h1234_9876, 1, 1, 1);
-#     62                                                 endfunction
-#     63                                               endclass
-#     64                                               
-#     65                                               class slv_reg3 extends uvm_reg;
-#     66              1                    ***0***       `uvm_object_utils(slv_reg3)
-#     66              2                    ***0***     
-#     66              3                    ***0***     
-#     66              4                    ***0***     
-#     66              5                    ***0***     
-#     66              6                    ***0***     
-#     66              7                    ***0***     
-#     66              8                    ***0***     
-#     66              9                    ***0***     
-#     66             10                    ***0***     
-#     67                                                 rand uvm_reg_field reg3;
-#     68                                                 
-#     69                                                 ////coverpoint
-#     70                                                 covergroup r3_cov;
-#     71                                                   option.per_instance = 1;
-#     72                                                   coverpoint reg3.value[7:0]{
-#     73                                                     bins lower = {[0:63]};
-#     74                                                     bins mid = {[64:127]};
-#     75                                                     bins high = {[128:255]};}
-#     76                                               endgroup
-#     77                                                   
-#     78                                                 function new(string name="slv_reg3");
-#     79              1                    ***0***         super.new(name, 32, UVM_CVR_FIELD_VALS);
-#     80                                                   if(has_coverage(UVM_CVR_FIELD_VALS))
-#     81              1                    ***0***           r3_cov = new();  
-#     82                                                  endfunction
-#     83                                                   
-#     84                                                 virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
-#     85              1                    ***0***         r3_cov.sample();
-#     86                                                 endfunction
-#     87                                                   
-#     88                                                 virtual function void sample_values();
-#     89              1                    ***0***         super.sample_values();
-#     90              1                    ***0***         r3_cov.sample();
-#     91                                                 endfunction
-#     92                                               
-#     93                                                 function void build();
-#     94              1                    ***0***         reg3 = uvm_reg_field::type_id::create("reg3");
-#     95              1                    ***0***         reg3.configure(this, 32, 0, "RW", 0,  32'h5A5A_5555, 1, 1, 1);
-#     96                                                 endfunction
-#     97                                               endclass
-#     98                                               
-#     99                                               class slv_reg4 extends uvm_reg;
-#     100             1                    ***0***       `uvm_object_utils(slv_reg4)
-#     100             2                    ***0***     
-#     100             3                    ***0***     
-#     100             4                    ***0***     
-#     100             5                    ***0***     
-#     100             6                    ***0***     
-#     100             7                    ***0***     
-#     100             8                    ***0***     
-#     100             9                    ***0***     
-#     100            10                    ***0***     
-#     101                                                rand uvm_reg_field reg4;
-#     102                                              
-#     103                                                 ////coverpoint
-#     104                                                covergroup r4_cov;
-#     105                                                  option.per_instance = 1;
-#     106                                                  coverpoint reg4.value[7:0]{
-#     107                                                    bins lower = {[0:63]};
-#     108                                                    bins mid = {[64:127]};
-#     109                                                    bins high = {[128:255]};}
-#     110                                              endgroup
-#     111                                              
-#     112                                                function new(string name="slv_reg4");
-#     113             1                    ***0***         super.new(name, 32, UVM_CVR_FIELD_VALS);
-#     114                                                  if(has_coverage(UVM_CVR_FIELD_VALS))
-#     115             1                    ***0***           r4_cov = new();
+#     49                                               endclass
+#     50                                               
+#     51                                               class slv_reg2 extends uvm_reg;
+#     52              1                    ***0***       `uvm_object_utils(slv_reg2)
+#     52              2                    ***0***     
+#     52              3                    ***0***     
+#     52              4                    ***0***     
+#     52              5                    ***0***     
+#     52              6                    ***0***     
+#     52              7                    ***0***     
+#     52              8                    ***0***     
+#     52              9                    ***0***     
+#     52             10                    ***0***     
+#     53                                                 rand uvm_reg_field reg2;
+#     54                                                 
+#     55                                                 ////coverpoint
+#     56                                                 covergroup r2_cov;
+#     57                                                   option.per_instance = 1;
+#     58                                                   coverpoint reg2.value[7:0] {
+#     59                                                   //  bins lower = {[0:63]};
+#     60                                                   //  bins mid = {[64:127]};
+#     61                                                     bins high = {[128:255]};}
+#     62                                                 endgroup
+#     63                                               
+#     64                                                 function new(string name="reg2");
+#     65              1                    ***0***         super.new(name, 32, UVM_CVR_FIELD_VALS);
+#     66                                                   if(has_coverage(UVM_CVR_FIELD_VALS))
+#     67              1                    ***0***           r2_cov = new();
+#     68                                                 endfunction
+#     69                                                   
+#     70                                                 virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+#     71              1                    ***0***         r2_cov.sample();
+#     72                                                 endfunction
+#     73                                                   
+#     74                                                 virtual function void sample_values();
+#     75              1                    ***0***         super.sample_values();
+#     76              1                    ***0***         r2_cov.sample();
+#     77                                                 endfunction
+#     78                                               
+#     79                                                 function void build();
+#     80              1                    ***0***         reg2 = uvm_reg_field::type_id::create("reg2");
+#     81              1                    ***0***         reg2.configure(this, 32, 0, "RW", 0,  32'h1234_9876, 1, 1, 1);
+#     82                                                 endfunction
+#     83                                               endclass
+#     84                                               
+#     85                                               class slv_reg3 extends uvm_reg;
+#     86              1                    ***0***       `uvm_object_utils(slv_reg3)
+#     86              2                    ***0***     
+#     86              3                    ***0***     
+#     86              4                    ***0***     
+#     86              5                    ***0***     
+#     86              6                    ***0***     
+#     86              7                    ***0***     
+#     86              8                    ***0***     
+#     86              9                    ***0***     
+#     86             10                    ***0***     
+#     87                                                 rand uvm_reg_field reg3;
+#     88                                                 
+#     89                                                 ////coverpoint
+#     90                                                 covergroup r3_cov;
+#     91                                                   option.per_instance = 1;
+#     92                                                   coverpoint reg3.value[7:0]{
+#     93                                                     //bins lower = {[0:63]};
+#     94                                                     //bins mid = {[64:127]};
+#     95                                                     bins high = {[128:255]};}
+#     96                                               endgroup
+#     97                                                   
+#     98                                                 function new(string name="slv_reg3");
+#     99              1                    ***0***         super.new(name, 32, UVM_CVR_FIELD_VALS);
+#     100                                                  if(has_coverage(UVM_CVR_FIELD_VALS))
+#     101             1                    ***0***           r3_cov = new();  
+#     102                                                 endfunction
+#     103                                                  
+#     104                                                virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+#     105             1                    ***0***         r3_cov.sample();
+#     106                                                endfunction
+#     107                                                  
+#     108                                                virtual function void sample_values();
+#     109             1                    ***0***         super.sample_values();
+#     110             1                    ***0***         r3_cov.sample();
+#     111                                                endfunction
+#     112                                              
+#     113                                                function void build();
+#     114             1                    ***0***         reg3 = uvm_reg_field::type_id::create("reg3");
+#     115             1                    ***0***         reg3.configure(this, 32, 0, "RW", 0,  32'h5A5A_5555, 1, 1, 1);
 #     116                                                endfunction
-#     117                                              
-#     118                                                virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
-#     119             1                    ***0***         r4_cov.sample();
-#     120                                                endfunction
-#     121                                                
-#     122                                                function void build();
-#     123             1                    ***0***         reg4 = uvm_reg_field::type_id::create("reg4");
-#     124             1                    ***0***         reg4.configure(this, 32, 0, "RW", 0, 32'h0000_FFFF, 1, 1, 1);
-#     125                                                endfunction
-#     126                                              endclass
-#     127                                              
-#     128                                              class apb_reg_block extends uvm_reg_block;
-#     129             1                    ***0***       `uvm_object_utils(apb_reg_block)
-#     129             2                    ***0***     
-#     129             3                    ***0***     
-#     129             4                    ***0***     
-#     129             5                    ***0***     
-#     129             6                    ***0***     
-#     129             7                    ***0***     
-#     129             8                    ***0***     
-#     129             9                    ***0***     
-#     129            10                    ***0***     
-#     130                                               
-#     131                                              rand  slv_ctrl ctrl1;
-#     132                                              rand  slv_reg1 r1;
-#     133                                              rand  slv_reg2 r2;
-#     134                                              rand  slv_reg3 r3;
-#     135                                              rand  slv_reg4 r4;  
-#     136                                                
-#     137                                              function new(string name="top_reg_block");
-#     138             1                    ***0***         super.new(name, UVM_NO_COVERAGE);
-#     139                                                endfunction
-#     140                                              
-#     141                                                function void build();
-#     142             1                    ***0***         ctrl1 = slv_ctrl::type_id::create("ctrl1");
-#     143             1                    ***0***         ctrl1.build();
-#     144             1                    ***0***         ctrl1.configure(this);
-#     145                                              
-#     146             1                    ***0***         r1 = slv_reg1::type_id::create("r1");
-#     147             1                    ***0***         r1.build();
-#     148             1                    ***0***         r1.configure(this);
-#     149             1                    ***0***         r1.add_hdl_path_slice("reg1",0, 32); 
-#     150                                              
-#     151             1                    ***0***         uvm_reg::include_coverage("*", UVM_CVR_ALL);
-#     152             1                    ***0***         r2 = slv_reg2::type_id::create("r2");
-#     153             1                    ***0***         r2.build();
-#     154             1                    ***0***         r2.configure(this);
-#     155             1                    ***0***         r2.set_coverage(UVM_CVR_FIELD_VALS);
-#     156             1                    ***0***         r2.add_hdl_path_slice("reg2",0, 32); 
-#     157                                                  
-#     158             1                    ***0***         uvm_reg::include_coverage("*", UVM_CVR_ALL);
-#     159             1                    ***0***         r3 = slv_reg3::type_id::create("r3");
-#     160             1                    ***0***         r3.build();
-#     161             1                    ***0***         r3.configure(this);
-#     162             1                    ***0***         r3.set_coverage(UVM_CVR_FIELD_VALS);
-#     163             1                    ***0***         r3.add_hdl_path_slice("reg3",0, 32); 
-#     164                                                  
-#     165             1                    ***0***         uvm_reg::include_coverage("*", UVM_CVR_ALL);
-#     166             1                    ***0***         r4 = slv_reg4::type_id::create("r4");
-#     167             1                    ***0***         r4.build();
-#     168             1                    ***0***         r4.configure(this);
-#     169             1                    ***0***         r4.set_coverage(UVM_CVR_FIELD_VALS);
-#     170             1                    ***0***         r4.add_hdl_path_slice("reg4",0, 32); 
-#     171                                                  
-#     172             1                    ***0***         default_map = create_map("default_map", 0, 4, UVM_LITTLE_ENDIAN, 0);
-#     173             1                    ***0***         default_map.add_reg(ctrl1, 'h0, "RW");
-#     174             1                    ***0***         default_map.add_reg(r1, 'h4, "RW");
-#     175             1                    ***0***         default_map.add_reg(r2, 'h8, "RW");
-#     176             1                    ***0***         default_map.add_reg(r3, 'hc, "RW");
-#     177             1                    ***0***         default_map.add_reg(r4, 'h10, "RW");    
-#     178                                              
-#     179             1                    ***0***         default_map.set_auto_predict(1);
-#     180             1                    ***0***         add_hdl_path("tb.dut", "RTL"); 
-#     181                                              
-#     182             1                    ***0***         lock_model();
-#     183                                                endfunction
-#     184                                              endclass
-#     185                                              
-#     186                                              module tb;
-#     187                                                top_reg_block t1;
-#     188                                                initial begin
-#     189                                                  t1 = new("top_reg_block");
-#     190                                                  t1.build();
-#     191                                                end
-#     192                                              endmodule
-#     193                                              
+#     117                                              endclass
+#     118                                              
+#     119                                              class slv_reg4 extends uvm_reg;
+#     120             1                    ***0***       `uvm_object_utils(slv_reg4)
+#     120             2                    ***0***     
+#     120             3                    ***0***     
+#     120             4                    ***0***     
+#     120             5                    ***0***     
+#     120             6                    ***0***     
+#     120             7                    ***0***     
+#     120             8                    ***0***     
+#     120             9                    ***0***     
+#     120            10                    ***0***     
+#     121                                                rand uvm_reg_field reg4;
+#     122                                              
+#     123                                                 ////coverpoint
+#     124                                                covergroup r4_cov;
+#     125                                                  option.per_instance = 1;
+#     126                                                  coverpoint reg4.value[7:0]{
+#     127                                                    bins lower = {[0:63]};}
+#     128                                                   // bins mid = {[64:127]};
+#     129                                                   // bins high = {[128:255]};}
+#     130                                              endgroup
+#     131                                              
+#     132                                                function new(string name="slv_reg4");
+#     133             1                    ***0***         super.new(name, 32, UVM_CVR_FIELD_VALS);
+#     134                                                  if(has_coverage(UVM_CVR_FIELD_VALS))
+#     135             1                    ***0***           r4_cov = new();
+#     136                                                endfunction
+#     137                                              
+#     138                                                virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+#     139             1                    ***0***         r4_cov.sample();
+#     140                                                endfunction
+#     141                                                
+#     142                                                function void build();
+#     143             1                    ***0***         reg4 = uvm_reg_field::type_id::create("reg4");
+#     144             1                    ***0***         reg4.configure(this, 32, 0, "RW", 0, 32'h0000_FFFF, 1, 1, 1);
+#     145                                                endfunction
+#     146                                              endclass
+#     147                                              
+#     148                                              class apb_reg_block extends uvm_reg_block;
+#     149             1                    ***0***       `uvm_object_utils(apb_reg_block)
+#     149             2                    ***0***     
+#     149             3                    ***0***     
+#     149             4                    ***0***     
+#     149             5                    ***0***     
+#     149             6                    ***0***     
+#     149             7                    ***0***     
+#     149             8                    ***0***     
+#     149             9                    ***0***     
+#     149            10                    ***0***     
+#     150                                               
+#     151                                              rand  slv_ctrl ctrl1;
+#     152                                              rand  slv_reg1 r1;
+#     153                                              rand  slv_reg2 r2;
+#     154                                              rand  slv_reg3 r3;
+#     155                                              rand  slv_reg4 r4;  
+#     156                                                
+#     157                                              function new(string name="top_reg_block");
+#     158             1                    ***0***         super.new(name, UVM_NO_COVERAGE);
+#     159                                                endfunction
+#     160                                              
+#     161                                                function void build();
+#     162             1                    ***0***         ctrl1 = slv_ctrl::type_id::create("ctrl1");
+#     163             1                    ***0***         ctrl1.build();
+#     164             1                    ***0***         ctrl1.configure(this);
+#     165                                              
+#     166             1                    ***0***         r1 = slv_reg1::type_id::create("r1");
+#     167             1                    ***0***         r1.build();
+#     168             1                    ***0***         r1.configure(this);
+#     169             1                    ***0***         r1.add_hdl_path_slice("reg1",0, 32); 
+#     170                                              
+#     171             1                    ***0***         uvm_reg::include_coverage("*", UVM_CVR_ALL);
+#     172             1                    ***0***         r2 = slv_reg2::type_id::create("r2");
+#     173             1                    ***0***         r2.build();
+#     174             1                    ***0***         r2.configure(this);
+#     175             1                    ***0***         r2.set_coverage(UVM_CVR_FIELD_VALS);
+#     176             1                    ***0***         r2.add_hdl_path_slice("reg2",0, 32); 
+#     177                                                  
+#     178             1                    ***0***         uvm_reg::include_coverage("*", UVM_CVR_ALL);
+#     179             1                    ***0***         r3 = slv_reg3::type_id::create("r3");
+#     180             1                    ***0***         r3.build();
+#     181             1                    ***0***         r3.configure(this);
+#     182             1                    ***0***         r3.set_coverage(UVM_CVR_FIELD_VALS);
+#     183             1                    ***0***         r3.add_hdl_path_slice("reg3",0, 32); 
+#     184                                                  
+#     185             1                    ***0***         uvm_reg::include_coverage("*", UVM_CVR_ALL);
+#     186             1                    ***0***         r4 = slv_reg4::type_id::create("r4");
+#     187             1                    ***0***         r4.build();
+#     188             1                    ***0***         r4.configure(this);
+#     189             1                    ***0***         r4.set_coverage(UVM_CVR_FIELD_VALS);
+#     190             1                    ***0***         r4.add_hdl_path_slice("reg4",0, 32); 
+#     191                                                  
+#     192             1                    ***0***         default_map = create_map("default_map", 0, 4, UVM_LITTLE_ENDIAN, 0);
+#     193             1                    ***0***         default_map.add_reg(ctrl1, 'h0, "RW");
+#     194             1                    ***0***         default_map.add_reg(r1, 'h4, "RW");
+#     195             1                    ***0***         default_map.add_reg(r2, 'h8, "RW");
+#     196             1                    ***0***         default_map.add_reg(r3, 'hc, "RW");
+#     197             1                    ***0***         default_map.add_reg(r4, 'h10, "RW");    
+#     198                                              
+#     199             1                    ***0***         default_map.set_auto_predict(1);
+#     200             1                    ***0***         add_hdl_path("tb.dut", "RTL"); 
+#     201                                              
+#     202             1                    ***0***         lock_model();
+#     203                                                endfunction
+#     204                                              endclass
+#     205                                              
+#     206                                              module tb;
+#     207                                                top_reg_block t1;
+#     208                                                initial begin
+#     209                                                  t1 = new("top_reg_block");
+#     210                                                  t1.build();
+#     211                                                end
+#     212                                              endmodule
+#     213                                              
 # 
 # Branch Coverage:
 #     Enabled Coverage            Active      Hits    Misses % Covered
 #     ----------------            ------      ----    ------ ---------
-#     Branches                        66         0        66       0.0
+#     Branches                        68         0        68       0.0
 # 
 # ================================Branch Details================================
 # 
@@ -1513,140 +1536,146 @@
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     32                                   ***0***     Count coming in to IF
-#     32              1                    ***0***       `uvm_object_utils(slv_reg2)
+#     31                                   ***0***     Count coming in to IF
+#     31              1                    ***0***         if(has_coverage(UVM_CVR_FIELD_VALS))
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     32                                   ***0***     Count coming in to IF
-#     32              2                    ***0***       `uvm_object_utils(slv_reg2)
+#     52                                   ***0***     Count coming in to IF
+#     52              1                    ***0***       `uvm_object_utils(slv_reg2)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     32                                   ***0***     Count coming in to IF
-#     32              3                    ***0***       `uvm_object_utils(slv_reg2)
-#     32              4                    ***0***       `uvm_object_utils(slv_reg2)
-# Branch totals: 0 hits of 2 branches = 0.0%
-# 
-# ------------------------------------IF Branch------------------------------------
-#     32                                   ***0***     Count coming in to IF
-#     32              5                    ***0***       `uvm_object_utils(slv_reg2)
+#     52                                   ***0***     Count coming in to IF
+#     52              2                    ***0***       `uvm_object_utils(slv_reg2)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     32                                   ***0***     Count coming in to IF
-#     32              6                    ***0***       `uvm_object_utils(slv_reg2)
+#     52                                   ***0***     Count coming in to IF
+#     52              3                    ***0***       `uvm_object_utils(slv_reg2)
+#     52              4                    ***0***       `uvm_object_utils(slv_reg2)
+# Branch totals: 0 hits of 2 branches = 0.0%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     52                                   ***0***     Count coming in to IF
+#     52              5                    ***0***       `uvm_object_utils(slv_reg2)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     46                                   ***0***     Count coming in to IF
-#     46              1                    ***0***         if(has_coverage(UVM_CVR_FIELD_VALS))
-#                                          ***0***     All False Count
-# Branch totals: 0 hits of 2 branches = 0.0%
-# 
-# ------------------------------------IF Branch------------------------------------
-#     66                                   ***0***     Count coming in to IF
-#     66              1                    ***0***       `uvm_object_utils(slv_reg3)
+#     52                                   ***0***     Count coming in to IF
+#     52              6                    ***0***       `uvm_object_utils(slv_reg2)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
 #     66                                   ***0***     Count coming in to IF
-#     66              2                    ***0***       `uvm_object_utils(slv_reg3)
+#     66              1                    ***0***         if(has_coverage(UVM_CVR_FIELD_VALS))
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     66                                   ***0***     Count coming in to IF
-#     66              3                    ***0***       `uvm_object_utils(slv_reg3)
-#     66              4                    ***0***       `uvm_object_utils(slv_reg3)
-# Branch totals: 0 hits of 2 branches = 0.0%
-# 
-# ------------------------------------IF Branch------------------------------------
-#     66                                   ***0***     Count coming in to IF
-#     66              5                    ***0***       `uvm_object_utils(slv_reg3)
+#     86                                   ***0***     Count coming in to IF
+#     86              1                    ***0***       `uvm_object_utils(slv_reg3)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     66                                   ***0***     Count coming in to IF
-#     66              6                    ***0***       `uvm_object_utils(slv_reg3)
+#     86                                   ***0***     Count coming in to IF
+#     86              2                    ***0***       `uvm_object_utils(slv_reg3)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     80                                   ***0***     Count coming in to IF
-#     80              1                    ***0***         if(has_coverage(UVM_CVR_FIELD_VALS))
+#     86                                   ***0***     Count coming in to IF
+#     86              3                    ***0***       `uvm_object_utils(slv_reg3)
+#     86              4                    ***0***       `uvm_object_utils(slv_reg3)
+# Branch totals: 0 hits of 2 branches = 0.0%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     86                                   ***0***     Count coming in to IF
+#     86              5                    ***0***       `uvm_object_utils(slv_reg3)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     100                                  ***0***     Count coming in to IF
-#     100             1                    ***0***       `uvm_object_utils(slv_reg4)
-#                                          ***0***     All False Count
-# Branch totals: 0 hits of 2 branches = 0.0%
-# 
-# ------------------------------------IF Branch------------------------------------
-#     100                                  ***0***     Count coming in to IF
-#     100             2                    ***0***       `uvm_object_utils(slv_reg4)
+#     86                                   ***0***     Count coming in to IF
+#     86              6                    ***0***       `uvm_object_utils(slv_reg3)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
 #     100                                  ***0***     Count coming in to IF
-#     100             3                    ***0***       `uvm_object_utils(slv_reg4)
-#     100             4                    ***0***       `uvm_object_utils(slv_reg4)
-# Branch totals: 0 hits of 2 branches = 0.0%
-# 
-# ------------------------------------IF Branch------------------------------------
-#     100                                  ***0***     Count coming in to IF
-#     100             5                    ***0***       `uvm_object_utils(slv_reg4)
+#     100             1                    ***0***         if(has_coverage(UVM_CVR_FIELD_VALS))
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     100                                  ***0***     Count coming in to IF
-#     100             6                    ***0***       `uvm_object_utils(slv_reg4)
+#     120                                  ***0***     Count coming in to IF
+#     120             1                    ***0***       `uvm_object_utils(slv_reg4)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     114                                  ***0***     Count coming in to IF
-#     114             1                    ***0***         if(has_coverage(UVM_CVR_FIELD_VALS))
+#     120                                  ***0***     Count coming in to IF
+#     120             2                    ***0***       `uvm_object_utils(slv_reg4)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     129                                  ***0***     Count coming in to IF
-#     129             1                    ***0***       `uvm_object_utils(apb_reg_block)
+#     120                                  ***0***     Count coming in to IF
+#     120             3                    ***0***       `uvm_object_utils(slv_reg4)
+#     120             4                    ***0***       `uvm_object_utils(slv_reg4)
+# Branch totals: 0 hits of 2 branches = 0.0%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     120                                  ***0***     Count coming in to IF
+#     120             5                    ***0***       `uvm_object_utils(slv_reg4)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     129                                  ***0***     Count coming in to IF
-#     129             2                    ***0***       `uvm_object_utils(apb_reg_block)
+#     120                                  ***0***     Count coming in to IF
+#     120             6                    ***0***       `uvm_object_utils(slv_reg4)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     129                                  ***0***     Count coming in to IF
-#     129             3                    ***0***       `uvm_object_utils(apb_reg_block)
-#     129             4                    ***0***       `uvm_object_utils(apb_reg_block)
-# Branch totals: 0 hits of 2 branches = 0.0%
-# 
-# ------------------------------------IF Branch------------------------------------
-#     129                                  ***0***     Count coming in to IF
-#     129             5                    ***0***       `uvm_object_utils(apb_reg_block)
+#     134                                  ***0***     Count coming in to IF
+#     134             1                    ***0***         if(has_coverage(UVM_CVR_FIELD_VALS))
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
 # ------------------------------------IF Branch------------------------------------
-#     129                                  ***0***     Count coming in to IF
-#     129             6                    ***0***       `uvm_object_utils(apb_reg_block)
+#     149                                  ***0***     Count coming in to IF
+#     149             1                    ***0***       `uvm_object_utils(apb_reg_block)
+#                                          ***0***     All False Count
+# Branch totals: 0 hits of 2 branches = 0.0%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     149                                  ***0***     Count coming in to IF
+#     149             2                    ***0***       `uvm_object_utils(apb_reg_block)
+#                                          ***0***     All False Count
+# Branch totals: 0 hits of 2 branches = 0.0%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     149                                  ***0***     Count coming in to IF
+#     149             3                    ***0***       `uvm_object_utils(apb_reg_block)
+#     149             4                    ***0***       `uvm_object_utils(apb_reg_block)
+# Branch totals: 0 hits of 2 branches = 0.0%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     149                                  ***0***     Count coming in to IF
+#     149             5                    ***0***       `uvm_object_utils(apb_reg_block)
+#                                          ***0***     All False Count
+# Branch totals: 0 hits of 2 branches = 0.0%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     149                                  ***0***     Count coming in to IF
+#     149             6                    ***0***       `uvm_object_utils(apb_reg_block)
 #                                          ***0***     All False Count
 # Branch totals: 0 hits of 2 branches = 0.0%
 # 
@@ -2923,5 +2952,5 @@
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 335 ns  Iteration: 53  Instance: /tb
 # Saving coverage database on exit...
-# End time: 12:15:40 on Aug 05,2025, Elapsed time: 0:00:02
-# Errors: 0, Warnings: 0
+# End time: 12:32:37 on Aug 05,2025, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 3
