@@ -32,9 +32,31 @@ class slv_reg2 extends uvm_reg;
   `uvm_object_utils(slv_reg2)
   rand uvm_reg_field reg2;
 
-  function new(string name="slv_reg2");
-    super.new(name, 32, UVM_NO_COVERAGE);
+////coverpoint
+covergroup temp_cov;
+option.per_instance = 1;
+coverpoint reg2.value[7:0] 
+{
+bins lower = {[0:63]};
+bins mid = {[64:127]};
+bins high = {[128:255]};
+}
+endgroup
+
+  function new(string name="reg2");
+    super.new(name, 32, UVM_CVR_FIELD_VALS);
+if(has_coverage(UVM_CVR_FIELD_VALS))
+temp_cov = new();
   endfunction
+
+virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+temp_cov.sample();
+endfunction
+
+virtual function void sample_values();
+super.sample_values();
+temp_cov.sample();
+endfunction
 
   function void build();
     reg2 = uvm_reg_field::type_id::create("reg2");
@@ -46,9 +68,33 @@ class slv_reg3 extends uvm_reg;
   `uvm_object_utils(slv_reg3)
   rand uvm_reg_field reg3;
 
+////coverpoint
+covergroup temp_cov;
+option.per_instance = 1;
+coverpoint reg3.value[7:0] 
+{
+bins lower = {[0:63]};
+bins mid = {[64:127]};
+bins high = {[128:255]};
+}
+endgroup
+
+
   function new(string name="slv_reg3");
-    super.new(name, 32, UVM_NO_COVERAGE);
-  endfunction
+    super.new(name, 32, UVM_CVR_FIELD_VALS);
+if(has_coverage(UVM_CVR_FIELD_VALS))
+temp_cov = new();  
+   endfunction
+
+virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+temp_cov.sample();
+endfunction
+
+
+virtual function void sample_values();
+super.sample_values();
+temp_cov.sample();
+endfunction
 
   function void build();
     reg3 = uvm_reg_field::type_id::create("reg3");
@@ -79,7 +125,9 @@ rand  slv_reg2 r2;
 rand  slv_reg3 r3;
 rand  slv_reg4 r4;  
 
-  function new(string name="top_reg_block");
+
+  
+function new(string name="top_reg_block");
     super.new(name, UVM_NO_COVERAGE);
   endfunction
 
@@ -91,22 +139,28 @@ rand  slv_reg4 r4;
     r1 = slv_reg1::type_id::create("r1");
     r1.build();
     r1.configure(this);
-    r1.add_hdl_path_slice("reg1",0, 4); 
+    r1.add_hdl_path_slice("reg1",0, 32); 
 
+    uvm_reg::include_coverage("*", UVM_CVR_ALL);
     r2 = slv_reg2::type_id::create("r2");
     r2.build();
     r2.configure(this);
+    r2.set_coverage(UVM_CVR_FIELD_VALS);
     r2.add_hdl_path_slice("reg2",0, 32); 
     
+    uvm_reg::include_coverage("*", UVM_CVR_ALL);
     r3 = slv_reg3::type_id::create("r3");
     r3.build();
     r3.configure(this);
-    r3.add_hdl_path_slice("reg3",0, 4); 
+    r3.set_coverage(UVM_CVR_FIELD_VALS);
+    r3.add_hdl_path_slice("reg3",0, 32); 
     
+    uvm_reg::include_coverage("*", UVM_CVR_ALL);
     r4 = slv_reg4::type_id::create("r4");
     r4.build();
     r4.configure(this);
-    r4.add_hdl_path_slice("reg4",0, 4); 
+    r4.set_coverage(UVM_CVR_FIELD_VALS);
+    r4.add_hdl_path_slice("reg4",0, 32); 
     
     default_map = create_map("default_map", 0, 4, UVM_LITTLE_ENDIAN, 0);
     default_map.add_reg(ctrl1, 'h0, "RW");
@@ -115,7 +169,7 @@ rand  slv_reg4 r4;
     default_map.add_reg(r3, 'hc, "RW");
     default_map.add_reg(r4, 'h10, "RW");    
 
-    //default_map.set_auto_predict(1);
+    default_map.set_auto_predict(1);
     add_hdl_path("tb.dut", "RTL"); 
 
     lock_model();
