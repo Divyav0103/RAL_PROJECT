@@ -10,27 +10,27 @@ class apb_reg_seq extends uvm_sequence;
   task body;
     uvm_status_e status;
     bit [31:0] rdata, rdata_m, dout_t;
-    $display("------------------------------------------------------------ctrll--------------------------------------------------");
-    rdata = regmodel.ctrll.get();
-    rdata_m = regmodel.ctrll.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("ctrll Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), 
+    $display("------------------------------------------------------------ctrl1--------------------------------------------------");
+    rdata = regmodel.ctrl1.get();
+    rdata_m = regmodel.ctrl1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("ctrl1 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), 
 UVM_NONE);
     
-    regmodel.ctrll.set(8'h55); 
-    rdata = regmodel.ctrll.get();
-    rdata_m = regmodel.ctrll.get_mirrored_value();
+    regmodel.ctrl1.set(5'hf); 
+    rdata = regmodel.ctrl1.get();
+    rdata_m = regmodel.ctrl1.get_mirrored_value();
  
-    `uvm_info("SEQ", $sformatf("ctrll After update -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m, dout_t), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("ctrl1 After update -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m, dout_t), UVM_NONE);
 
-    regmodel.ctrll.write(status,8'h55);
-    rdata   = regmodel.ctrll.get();
-    rdata_m = regmodel.ctrll.get_mirrored_value();
+    regmodel.ctrl1.write(status,5'hf);
+    rdata   = regmodel.ctrl1.get();
+    rdata_m = regmodel.ctrl1.get_mirrored_value();
 
-    `uvm_info("SEQ", $sformatf("ctrll After write -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m,dout_t), UVM_NONE);
-    regmodel.ctrll.read(status,dout_t);
-    rdata   = regmodel.ctrll.get();
-    rdata_m = regmodel.ctrll.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("ctrll After read  -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m,dout_t), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("ctrl1 After write -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m,dout_t), UVM_NONE);
+    regmodel.ctrl1.read(status,dout_t);
+    rdata   = regmodel.ctrl1.get();
+    rdata_m = regmodel.ctrl1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("ctrl1 After read  -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m,dout_t), UVM_NONE);
 
     $display("------------------------------------------------------------R1--------------------------------------------------");
     rdata = regmodel.r1.get();

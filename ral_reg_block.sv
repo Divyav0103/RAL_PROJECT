@@ -162,6 +162,7 @@ function new(string name="top_reg_block");
     ctrl1 = slv_ctrl::type_id::create("ctrl1");
     ctrl1.build();
     ctrl1.configure(this);
+    ctrl1.add_hdl_path_slice("ctrl1",0, 4); 
 
     r1 = slv_reg1::type_id::create("r1");
     r1.build();
