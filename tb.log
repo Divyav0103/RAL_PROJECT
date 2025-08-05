@@ -1,6 +1,6 @@
 # vsim tb -voptargs="+acc=npr" -l tb.log -c -do "run -all;quit" 
-# Start time: 09:43:28 on Aug 05,2025
-# ** Note: (vsim-3812) Design is being optimized...
+# Start time: 09:50:57 on Aug 05,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -81,5 +81,5 @@
 # [backdoor_reg_seq]     4
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 20 ns  Iteration: 53  Instance: /tb
-# End time: 09:43:32 on Aug 05,2025, Elapsed time: 0:00:04
+# End time: 09:51:00 on Aug 05,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
