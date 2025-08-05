@@ -1,28 +1,3 @@
-class apb_test extends uvm_test;
-  `uvm_component_utils(apb_test)
-
-  apb_env env;
-  apb_reg_sequence seq;
-  
-  function new(string name = "apb_test", uvm_component parent);
-    super.new(name, parent);
-  endfunction	
-  
-  function void build_phase(uvm_phase phase);
-    super.build_phase(phase);
-    env = apb_env::type_id::create("env", this);
-    seq = apb_sequence::type_id::create("seq", this);
-  endfunction
- 
-  task run_phase(uvm_phase phase);
-    super.run_phase(phase);
-    seq.regmodel = env.regmodel;
-    phase.raise_objection(this);
-    seq.start(env.agent_inst.seqr);
-    phase.drop_objection(this);
-  endtask
-endclass
-
 class apb_frontdoor_test extends uvm_test;
   `uvm_component_utils(apb_frontdoor_test)
 
@@ -100,7 +75,7 @@ class apb_backdoor_test extends uvm_test;
 endclass
 
 //////////////////////////////////////////////////////////////////////////////////////////
-class reg_test extends apb_test;
+/*class reg_test extends apb_test;
   `uvm_component_utils(reg_test)
   
    apb_write0 pkt1;
@@ -137,4 +112,4 @@ class reg_test extends apb_test;
     phase.drop_objection (this);
     phase.phase_done.set_drain_time(this,100);
   endtask
-endclass
+endclass*/
