@@ -29,7 +29,7 @@ module tb;
  
  initial begin
   uvm_config_db#(virtual ral_if)::set(null,"*","vif",vif);
-  run_test("apb_frontdoor_test");
+  run_test("apb_backdoor_test");
  end
   
  initial begin
