@@ -1,5 +1,5 @@
-class apb_reg_seq extends uvm_sequence;
-  `uvm_object_utils(apb_reg_seq)
+class frontdoor_reg_seq extends uvm_sequence;
+  `uvm_object_utils(frontdoor_reg_seq)
 
   apb_reg_block regmodel;
 

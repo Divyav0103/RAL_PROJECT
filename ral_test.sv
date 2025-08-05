@@ -48,7 +48,7 @@ class apb_reset_test extends uvm_test;
     phase.phase_done.set_drain_time(this, 20);
   endtask
 endclass
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 class apb_backdoor_test extends uvm_test;
   `uvm_component_utils(apb_backdoor_test)
 
@@ -73,3 +73,43 @@ class apb_backdoor_test extends uvm_test;
     phase.phase_done.set_drain_time(this, 20);
   endtask
 endclass
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/*class reg_test extends apb_test;
+  `uvm_component_utils(reg_test)
+  
+   apb_write0 pkt1;
+   apb_write1 pkt2;
+  
+  function new(string name = "reg_test",uvm_component parent);
+    super.new(name,parent);
+  endfunction
+
+  virtual function void build_phase(uvm_phase phase);
+   super.build_phase(phase);
+    pkt1 = apb_write0::type_id::create("pkt1", this);
+    pkt2 = apb_write1::type_id::create("pkt2", this);
+  endfunction
+
+  virtual function void end_of_elaboration();
+     uvm_top.print_topology();
+  endfunction
+
+  task run_phase (uvm_phase phase);
+    super.run_phase(phase);
+    phase.raise_objection (this);
+    pkt1.start(env.a_agent.seqr); 
+    phase.drop_objection (this);
+    phase.phase_done.set_drain_time(this,100);
+
+    phase.raise_objection (this);
+    pkt2.start(env.a_agent.seqr); 
+    phase.drop_objection (this);
+    phase.phase_done.set_drain_time(this,100);
+
+    phase.raise_objection (this);
+    pkt10.start(env.a_agent.seqr); 
+    phase.drop_objection (this);
+    phase.phase_done.set_drain_time(this,100);
+  endtask
+endclass*/
