@@ -31,32 +31,30 @@ endclass
 class slv_reg2 extends uvm_reg;
   `uvm_object_utils(slv_reg2)
   rand uvm_reg_field reg2;
-
-////coverpoint
-covergroup temp_cov;
-option.per_instance = 1;
-coverpoint reg2.value[7:0] 
-{
-bins lower = {[0:63]};
-bins mid = {[64:127]};
-bins high = {[128:255]};
-}
-endgroup
+  
+  ////coverpoint
+  covergroup r2_cov;
+    option.per_instance = 1;
+    coverpoint reg2.value[7:0] {
+      bins lower = {[0:63]};
+      bins mid = {[64:127]};
+      bins high = {[128:255]};}
+  endgroup
 
   function new(string name="reg2");
     super.new(name, 32, UVM_CVR_FIELD_VALS);
-if(has_coverage(UVM_CVR_FIELD_VALS))
-temp_cov = new();
+    if(has_coverage(UVM_CVR_FIELD_VALS))
+      r2_cov = new();
   endfunction
-
-virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
-temp_cov.sample();
-endfunction
-
-virtual function void sample_values();
-super.sample_values();
-temp_cov.sample();
-endfunction
+    
+  virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+    r2_cov.sample();
+  endfunction
+    
+  virtual function void sample_values();
+    super.sample_values();
+    r2_cov.sample();
+  endfunction
 
   function void build();
     reg2 = uvm_reg_field::type_id::create("reg2");
@@ -67,34 +65,30 @@ endclass
 class slv_reg3 extends uvm_reg;
   `uvm_object_utils(slv_reg3)
   rand uvm_reg_field reg3;
-
-////coverpoint
-covergroup temp_cov;
-option.per_instance = 1;
-coverpoint reg3.value[7:0] 
-{
-bins lower = {[0:63]};
-bins mid = {[64:127]};
-bins high = {[128:255]};
-}
+  
+  ////coverpoint
+  covergroup r3_cov;
+    option.per_instance = 1;
+    coverpoint reg3.value[7:0]{
+      bins lower = {[0:63]};
+      bins mid = {[64:127]};
+      bins high = {[128:255]};}
 endgroup
-
-
+    
   function new(string name="slv_reg3");
     super.new(name, 32, UVM_CVR_FIELD_VALS);
-if(has_coverage(UVM_CVR_FIELD_VALS))
-temp_cov = new();  
+    if(has_coverage(UVM_CVR_FIELD_VALS))
+      r3_cov = new();  
    endfunction
-
-virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
-temp_cov.sample();
-endfunction
-
-
-virtual function void sample_values();
-super.sample_values();
-temp_cov.sample();
-endfunction
+    
+  virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+    r3_cov.sample();
+  endfunction
+    
+  virtual function void sample_values();
+    super.sample_values();
+    r3_cov.sample();
+  endfunction
 
   function void build();
     reg3 = uvm_reg_field::type_id::create("reg3");
@@ -106,10 +100,25 @@ class slv_reg4 extends uvm_reg;
   `uvm_object_utils(slv_reg4)
   rand uvm_reg_field reg4;
 
+   ////coverpoint
+  covergroup r4_cov;
+    option.per_instance = 1;
+    coverpoint reg4.value[7:0]{
+      bins lower = {[0:63]};
+      bins mid = {[64:127]};
+      bins high = {[128:255]};}
+endgroup
+
   function new(string name="slv_reg4");
-    super.new(name, 32, UVM_NO_COVERAGE);
+    super.new(name, 32, UVM_CVR_FIELD_VALS);
+    if(has_coverage(UVM_CVR_FIELD_VALS))
+      r4_cov = new();
   endfunction
 
+  virtual function void sample(uvm_reg_data_t data,uvm_reg_data_t byte_en,bit is_read,uvm_reg_map map);
+    r4_cov.sample();
+  endfunction
+  
   function void build();
     reg4 = uvm_reg_field::type_id::create("reg4");
     reg4.configure(this, 32, 0, "RW", 0, 32'h0000_FFFF, 1, 1, 1);
@@ -124,8 +133,6 @@ rand  slv_reg1 r1;
 rand  slv_reg2 r2;
 rand  slv_reg3 r3;
 rand  slv_reg4 r4;  
-
-
   
 function new(string name="top_reg_block");
     super.new(name, UVM_NO_COVERAGE);
