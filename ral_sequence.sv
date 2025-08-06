@@ -56,8 +56,7 @@ class frontdoor_reg_seq extends uvm_sequence;
  
     rdata = regmodel.r2.get();
     rdata_m = regmodel.r2.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("Reg2 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), 
-UVM_NONE);
+    `uvm_info("SEQ", $sformatf("Reg2 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), UVM_NONE);
     
     regmodel.r2.set(32'hAAAAAAAA); 
     rdata = regmodel.r2.get();
@@ -122,7 +121,7 @@ endtask
 endclass
 
 ////////////////////////////////////////////////////////////////////////RESET VALUE///////////////////////////////////////////////////
-class top_reg_seq extends uvm_sequence;
+/*class top_reg_seq extends uvm_sequence;
   `uvm_object_utils(top_reg_seq)
   apb_reg_block regmodel;
   
@@ -222,7 +221,7 @@ class top_reg_seq extends uvm_sequence;
   endtask
 endclass
 
-/*
+*/
 class top_reg_seq extends uvm_sequence;
   `uvm_object_utils(top_reg_seq)
   apb_reg_block regmodel;
@@ -274,12 +273,12 @@ class top_reg_seq extends uvm_sequence;
       `uvm_info("SEQ", "Reset verification for REG4 passed!", UVM_LOW);
     end
   endtask
-endclass*/
+endclass
 ///////////////////////////////////////////////////////////////////////////BACKDOOR ACCESS////////////////////////////////////////////
 class backdoor_reg_seq extends uvm_sequence;
-`uvm_object_utils(backdoor_reg_seq)
-apb_reg_block regmodel;
-uvm_reg_data_t read_data;
+  `uvm_object_utils(backdoor_reg_seq)
+  apb_reg_block regmodel;
+  uvm_reg_data_t read_data;
   
   function new (string name = "backdoor_reg_seq"); 
     super.new(name);
