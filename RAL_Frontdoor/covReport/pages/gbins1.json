@@ -1,0 +1,24 @@
+var g_data = {
+c1112:[4,'#coverpoint__0#',[],,'1111',1,1,'ctrl_cov','1098','/ral_top_sv_unit/slv_ctrl',[[],[0,'1','2',,'low']],[]],
+c1114:[4,'#coverpoint__0#',[],,'1113',2,1,'\\/ral_top_sv_unit::slv_ctrl::ctrl_cov ','1098','/ral_top_sv_unit/slv_ctrl',[[],[0,'1','2',,'low']],[]],
+c1132:[4,'#coverpoint__0#',[],,'1131',1,1,'r1_cov','1118','/ral_top_sv_unit/slv_reg1',[[],[0,'1','2',,'mid']],[]],
+c1134:[4,'#coverpoint__0#',[],,'1133',2,1,'\\/ral_top_sv_unit::slv_reg1::r1_cov ','1118','/ral_top_sv_unit/slv_reg1',[[],[0,'1','2',,'mid']],[]],
+c1152:[4,'#coverpoint__0#',[],,'1151',1,1,'r2_cov','1138','/ral_top_sv_unit/slv_reg2',[[],[0,'1','2',,'high']],[]],
+c1154:[4,'#coverpoint__0#',[],,'1153',2,1,'\\/ral_top_sv_unit::slv_reg2::r2_cov ','1138','/ral_top_sv_unit/slv_reg2',[[],[0,'1','2',,'high']],[]],
+c1172:[4,'#coverpoint__0#',[],,'1171',1,1,'r3_cov','1158','/ral_top_sv_unit/slv_reg3',[[],[0,'1','2',,'high']],[]],
+c1174:[4,'#coverpoint__0#',[],,'1173',2,1,'\\/ral_top_sv_unit::slv_reg3::r3_cov ','1158','/ral_top_sv_unit/slv_reg3',[[],[0,'1','2',,'high']],[]],
+c1192:[4,'#coverpoint__0#',[],,'1191',1,1,'r4_cov','1178','/ral_top_sv_unit/slv_reg4',[[],[0,'1','2',,'lower']],[]],
+c1194:[4,'#coverpoint__0#',[],,'1193',2,1,'\\/ral_top_sv_unit::slv_reg4::r4_cov ','1178','/ral_top_sv_unit/slv_reg4',[[],[0,'1','2',,'lower']],[]],
+c1414:[4,'#coverpoint__0#',[],,'1413',1,1,'ctrl_cov','1400','work.ral_top_sv_unit::slv_ctrl',[[],[0,'1','2',,'low']],[]],
+c1416:[4,'#coverpoint__0#',[],,'1415',2,1,'\\/ral_top_sv_unit::slv_ctrl::ctrl_cov ','1400','work.ral_top_sv_unit::slv_ctrl',[[],[0,'1','2',,'low']],[]],
+c1434:[4,'#coverpoint__0#',[],,'1433',1,1,'r1_cov','1420','work.ral_top_sv_unit::slv_reg1',[[],[0,'1','2',,'mid']],[]],
+c1436:[4,'#coverpoint__0#',[],,'1435',2,1,'\\/ral_top_sv_unit::slv_reg1::r1_cov ','1420','work.ral_top_sv_unit::slv_reg1',[[],[0,'1','2',,'mid']],[]],
+c1454:[4,'#coverpoint__0#',[],,'1453',1,1,'r2_cov','1440','work.ral_top_sv_unit::slv_reg2',[[],[0,'1','2',,'high']],[]],
+c1456:[4,'#coverpoint__0#',[],,'1455',2,1,'\\/ral_top_sv_unit::slv_reg2::r2_cov ','1440','work.ral_top_sv_unit::slv_reg2',[[],[0,'1','2',,'high']],[]],
+c1474:[4,'#coverpoint__0#',[],,'1473',1,1,'r3_cov','1460','work.ral_top_sv_unit::slv_reg3',[[],[0,'1','2',,'high']],[]],
+c1476:[4,'#coverpoint__0#',[],,'1475',2,1,'\\/ral_top_sv_unit::slv_reg3::r3_cov ','1460','work.ral_top_sv_unit::slv_reg3',[[],[0,'1','2',,'high']],[]],
+c1494:[4,'#coverpoint__0#',[],,'1493',1,1,'r4_cov','1480','work.ral_top_sv_unit::slv_reg4',[[],[0,'1','2',,'lower']],[]],
+c1496:[4,'#coverpoint__0#',[],,'1495',2,1,'\\/ral_top_sv_unit::slv_reg4::r4_cov ','1480','work.ral_top_sv_unit::slv_reg4',[[],[0,'1','2',,'lower']],[]],
+dummyEnd:0
+};
+processCovergroupsData(g_data);

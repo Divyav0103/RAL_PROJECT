@@ -1,0 +1,126 @@
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim $ 
+# Start time: 15:29:17 on Aug 06,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-13130) Failed to find design unit $.
+#         Searched libraries:
+#             work
+# Optimization failed
+# Error loading design
+# End time: 15:29:18 on Aug 06,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vlog ral_top.sv
+# QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
+# Start time: 15:30:09 on Aug 06,2025
+# vlog -reportprogress 300 ral_top.sv 
+# ** Note: (vlog-2286) ral_top.sv(1): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package ral_top_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling interface ral_if
+# -- Compiling module tb
+# -- Compiling module top
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 15:30:10 on Aug 06,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim -novopt -suppress 12110 tb
+# vsim -novopt -suppress 12110 tb 
+# Start time: 15:30:17 on Aug 06,2025
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/RAL_Frontdoor/work.tb
+# Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/RAL_Frontdoor/work.ral_top_sv_unit
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.ral_top_sv_unit
+# Loading work.tb
+# Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/RAL_Frontdoor/work.ral_if
+# Loading work.ral_if
+# Refreshing /fetools/work_area/frontend/divyavishwanath/RAL_PROJECT/RAL_Frontdoor/work.top
+# Loading work.top
+# Loading mtiUvm.questa_uvm_pkg
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+add wave -position insertpoint sim:/tb/dut/*
+run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test apb_reset_test...
+# -------------------------------------------------------------R1--------------------------------------------------
+# UVM_INFO ral_sequence.sv(141) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Reset Value added : 1 
+# UVM_INFO ral_sequence.sv(145) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Register Reset Value : a5a50000 
+# UVM_INFO ral_sequence.sv(150) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Before Reset -> Mir : 0 Des : 0 
+# --------------Applying Reset to register model R1 ---------------
+# UVM_INFO ral_sequence.sv(157) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 After Reset -> Mir : a5a50000 Des : a5a50000 
+# -------------------------------------------------------------R2--------------------------------------------------
+# UVM_INFO ral_sequence.sv(162) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Reset Value added : 1 
+# UVM_INFO ral_sequence.sv(166) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Register Reset Value : 12349876 
+# UVM_INFO ral_sequence.sv(171) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Before Reset -> Mir : 0 Des : 0 
+# --------------Applying Reset to register model R2---------------
+# UVM_INFO ral_sequence.sv(178) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 After Reset -> Mir : 12349876 Des : 12349876 
+# -------------------------------------------------------------R3--------------------------------------------------
+# UVM_INFO ral_sequence.sv(183) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Reset Value added : 1 
+# UVM_INFO ral_sequence.sv(187) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Register Reset Value : 5a5a5555 
+# UVM_INFO ral_sequence.sv(192) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Before Reset -> Mir : 0 Des : 0 
+# --------------Applying Reset to register model R3---------------
+# UVM_INFO ral_sequence.sv(199) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 After Reset -> Mir : 5a5a5555 Des : 5a5a5555 
+# -------------------------------------------------------------R4--------------------------------------------------
+# UVM_INFO ral_sequence.sv(204) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Reset Value added : 1 
+# UVM_INFO ral_sequence.sv(208) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Register Reset Value : ffff 
+# UVM_INFO ral_sequence.sv(213) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Before Reset -> Mir : 0 Des : 0 
+# --------------Applying Reset to register model R4---------------
+# UVM_INFO ral_sequence.sv(220) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 After Reset -> Mir : ffff Des : ffff 
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 20: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   20
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [SEQ]    16
+# [TEST_DONE]     1
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 20 ns  Iteration: 53  Instance: /tb
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+quit
+# End time: 15:30:56 on Aug 06,2025, Elapsed time: 0:00:39
+# Errors: 0, Warnings: 1
