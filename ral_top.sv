@@ -2,9 +2,7 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;  
 `include "ral_pkg.sv"
-//`include "ral_if.sv"
 `include "design.v"
-//import ral_pkg::*;
 
 module tb;
  bit PCLK, PRESETn;
@@ -29,7 +27,7 @@ module tb;
  
  initial begin
   uvm_config_db#(virtual ral_if)::set(null,"*","vif",vif);
-  run_test("apb_frontdoor_test");
+  run_test("reg_test");
  end
   
  initial begin
