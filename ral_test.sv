@@ -6,12 +6,12 @@ class apb_frontdoor_test extends uvm_test;
   endfunction
 
   apb_env env;
-  apb_reg_seq trseq;
+  frontdoor_reg_seq trseq;
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     env = apb_env::type_id::create("apb_env", this);
-    trseq = apb_reg_seq::type_id::create("trseq");
+    trseq = frontdoor_reg_seq::type_id::create("trseq");
   endfunction
 
   virtual task run_phase(uvm_phase phase);
@@ -75,9 +75,10 @@ class apb_backdoor_test extends uvm_test;
 endclass
 
 //////////////////////////////////////////////////////////////////////////////////////////
-class reg_test extends apb_test;
+class reg_test extends uvm_test;
   `uvm_component_utils(reg_test)
   
+  apb_env env;
   frontdoor_reg_seq pkt1;
   top_reg_seq pkt2;
   
@@ -87,6 +88,7 @@ class reg_test extends apb_test;
 
   virtual function void build_phase(uvm_phase phase);
    super.build_phase(phase);
+    env = apb_env::type_id::create("apb_env", this);
     pkt1 = frontdoor_reg_seq::type_id::create("pkt1", this);
     pkt2 = top_reg_seq::type_id::create("pkt2", this);
   endfunction
@@ -98,11 +100,14 @@ class reg_test extends apb_test;
   task run_phase (uvm_phase phase);
     super.run_phase(phase);
     phase.raise_objection (this);
+    pkt1.regmodel = env.regmodel;
     pkt1.start(env.agent_inst.seqr); 
     phase.drop_objection (this);
     phase.phase_done.set_drain_time(this,20);
 
+    
     phase.raise_objection (this);
+    pkt2.regmodel = env.regmodel;
     pkt2.start(env.agent_inst.seqr); 
     phase.drop_objection (this);
     phase.phase_done.set_drain_time(this,20);

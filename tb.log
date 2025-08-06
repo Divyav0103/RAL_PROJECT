@@ -1,6 +1,9 @@
-# vsim tb -voptargs="+acc=npr" -l tb.log -c -do "run -all;quit" 
-# Start time: 09:50:57 on Aug 05,2025
+# vsim tb -voptargs="+acc=npr" -l tb.log -c -do "run -all;quit;" 
+# Start time: 09:40:32 on Aug 06,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: ral_reg_block.sv(176): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: ral_reg_block.sv(183): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: ral_reg_block.sv(190): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -49,21 +52,21 @@
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
 # UVM_INFO @ 0: reporter [RNTST] Running test apb_backdoor_test...
 # -------------------------------------------------------------R1--------------------------------------------------
-# UVM_INFO ral_sequence.sv(155) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Write -> Des: 85 Mir: 85
-# UVM_INFO ral_sequence.sv(157) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R1 READ : 5
-# UVM_INFO ral_sequence.sv(160) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Des: 5 Mir: 5
+# UVM_INFO ral_sequence.sv(244) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Write -> Des: 85 Mir: 85
+# UVM_INFO ral_sequence.sv(247) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R1 READ : 85
+# UVM_INFO ral_sequence.sv(250) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Des: 85 Mir: 85
 # ---------------------------------------------------------R2-------------------------------------------------------
-# UVM_INFO ral_sequence.sv(167) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Write -> Des: 170 Mir: 170
-# UVM_INFO ral_sequence.sv(169) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R2 READ : 170
-# UVM_INFO ral_sequence.sv(172) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Des: 170 Mir: 170
+# UVM_INFO ral_sequence.sv(256) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Write -> Des: 170 Mir: 170
+# UVM_INFO ral_sequence.sv(259) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R2 READ : 170
+# UVM_INFO ral_sequence.sv(262) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Des: 170 Mir: 170
 # ---------------------------------------------------------R3-------------------------------------------------------
-# UVM_INFO ral_sequence.sv(179) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Write -> Des: 255 Mir: 255
-# UVM_INFO ral_sequence.sv(181) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R3 READ : 15
-# UVM_INFO ral_sequence.sv(184) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Des: 15 Mir: 15
+# UVM_INFO ral_sequence.sv(268) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Write -> Des: 255 Mir: 255
+# UVM_INFO ral_sequence.sv(271) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R3 READ : 255
+# UVM_INFO ral_sequence.sv(274) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Des: 255 Mir: 255
 # ---------------------------------------------------------R4-------------------------------------------------------
-# UVM_INFO ral_sequence.sv(190) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Write -> Des: 60 Mir: 60
-# UVM_INFO ral_sequence.sv(192) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R4 READ : 12
-# UVM_INFO ral_sequence.sv(195) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Des: 12 Mir: 12
+# UVM_INFO ral_sequence.sv(280) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Write -> Des: 60 Mir: 60
+# UVM_INFO ral_sequence.sv(283) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R4 READ : 60
+# UVM_INFO ral_sequence.sv(286) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Des: 60 Mir: 60
 # UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 20: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
@@ -81,5 +84,5 @@
 # [backdoor_reg_seq]     4
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 20 ns  Iteration: 53  Instance: /tb
-# End time: 09:51:00 on Aug 05,2025, Elapsed time: 0:00:03
-# Errors: 0, Warnings: 0
+# End time: 09:40:35 on Aug 06,2025, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 3
