@@ -1,0 +1,87 @@
+# vsim -vopt work.tb -voptargs="+acc=npr" -assertdebug -l simulation.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; run -all; coverage report -detail; exit" 
+# Start time: 16:01:43 on Aug 06,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.ral_top_sv_unit(fast)
+# Loading work.tb(fast)
+# Loading work.ral_if(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.ral_if(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test apb_backdoor_test...
+# -------------------------------------------------------------R1--------------------------------------------------
+# UVM_INFO ral_sequence.sv(19) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Write -> Des: 85 Mir: 85
+# UVM_INFO ral_sequence.sv(22) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R1 READ : 85
+# UVM_INFO ral_sequence.sv(25) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Des: 85 Mir: 85
+# ---------------------------------------------------------R2-------------------------------------------------------
+# UVM_INFO ral_sequence.sv(31) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Write -> Des: 170 Mir: 170
+# UVM_INFO ral_sequence.sv(34) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R2 READ : 170
+# UVM_INFO ral_sequence.sv(37) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Des: 170 Mir: 170
+# ---------------------------------------------------------R3-------------------------------------------------------
+# UVM_INFO ral_sequence.sv(43) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Write -> Des: 255 Mir: 255
+# UVM_INFO ral_sequence.sv(46) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R3 READ : 255
+# UVM_INFO ral_sequence.sv(49) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R3 Des: 255 Mir: 255
+# ---------------------------------------------------------R4-------------------------------------------------------
+# UVM_INFO ral_sequence.sv(55) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Write -> Des: 60 Mir: 60
+# UVM_INFO ral_sequence.sv(58) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [backdoor_reg_seq] R4 READ : 60
+# UVM_INFO ral_sequence.sv(61) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R4 Des: 60 Mir: 60
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 20: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   16
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [SEQ]     8
+# [TEST_DONE]     1
+# [backdoor_reg_seq]     4
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 20 ns  Iteration: 53  Instance: /tb
+# Saving coverage database on exit...
+# End time: 16:01:46 on Aug 06,2025, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0
