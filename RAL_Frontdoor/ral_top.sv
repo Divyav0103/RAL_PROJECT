@@ -25,7 +25,8 @@ module tb;
  always #5 PCLK = ~PCLK;
  
  initial begin
-  uvm_config_db#(virtual ral_if)::set(null,"*","vif",vif);
+  uvm_config_db#(virtual ral_if.DRV)::set(null,"*","vif",vif.DRV);
+  uvm_config_db#(virtual ral_if.MON)::set(null,"*","vif",vif.MON);
   run_test("reg_test");
  end
   
