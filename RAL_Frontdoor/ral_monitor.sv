@@ -12,7 +12,7 @@ class apb_monitor extends uvm_monitor;
     
   function void build_phase(uvm_phase phase);
     mon_ap = new("mon_ap",this);
-    if(!uvm_config_db#(virtual ral_if)::get(this,"","vif",vif))
+    if(!uvm_config_db#(virtual ral_if.mon_cb)::get(this,"","vif",vif))
       `uvm_error("MON","Error getting interface handle")
   endfunction:build_phase
 
