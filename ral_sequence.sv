@@ -121,7 +121,7 @@ endtask
 endclass
 
 ////////////////////////////////////////////////////////////////////////RESET VALUE///////////////////////////////////////////////////
-/*class top_reg_seq extends uvm_sequence;
+class top_reg_seq extends uvm_sequence;
   `uvm_object_utils(top_reg_seq)
   apb_reg_block regmodel;
   
@@ -221,7 +221,7 @@ endclass
   endtask
 endclass
 
-*/
+/*
 class top_reg_seq extends uvm_sequence;
   `uvm_object_utils(top_reg_seq)
   apb_reg_block regmodel;
@@ -273,7 +273,7 @@ class top_reg_seq extends uvm_sequence;
       `uvm_info("SEQ", "Reset verification for REG4 passed!", UVM_LOW);
     end
   endtask
-endclass
+endclass*/
 ///////////////////////////////////////////////////////////////////////////BACKDOOR ACCESS////////////////////////////////////////////
 class backdoor_reg_seq extends uvm_sequence;
   `uvm_object_utils(backdoor_reg_seq)
