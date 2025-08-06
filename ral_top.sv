@@ -1,4 +1,3 @@
-
 `include "uvm_macros.svh"
 import uvm_pkg::*;  
 `include "ral_pkg.sv"
