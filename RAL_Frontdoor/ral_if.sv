@@ -16,7 +16,7 @@ interface ral_if(input logic PCLK, input bit PRESETn);
    inout PWRITE;
    inout PADDR;
    inout PWDATA;
-   input  PRDATA;
+   input PRDATA;
   endclocking
    
  clocking mon_cb @(posedge PCLK);
@@ -26,7 +26,7 @@ interface ral_if(input logic PCLK, input bit PRESETn);
   input PWRITE;
   input PADDR;
   input PWDATA;
-  input  PRDATA;
+  input PRDATA;
  endclocking
   
  modport DRV(clocking drv_cb, input PCLK, PRESETn, PRDATA);
