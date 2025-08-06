@@ -21,11 +21,13 @@ class apb_monitor extends uvm_monitor;
     tr = apb_transaction::type_id::create("tr");
 
   forever begin
-      repeat(3) @(posedge vif.PCLK); // Sync with APB clock
-      tr.PWRITE = vif.PWRITE;
-      tr.PADDR = vif.PADDR;
-      tr.PWDATA = vif.PWDATA;
-      tr.PRDATA = vif.PRDATA;
+    repeat(3) @(vif.mon_cb); // Sync with APB clock
+      tr.PWRITE = vif.mon_cb.PWRITE;
+      tr.PADDR = vif.mon_cb.PADDR;
+      tr.PWDATA = vif.mon_cb.PWDATA;
+      tr.PRDATA = vif.mon_cb.PRDATA;
+      tr.PSEL = vif.mon_cb.PSEL;
+      tr.PENABLE = vif.mon_cb.PENABLE;
     
     `uvm_info("MON", $sformatf("PWRITE :%b PADDR : %0d PWDATA:%0d PRDATA:%0d", tr.PWRITE, tr.PADDR, tr.PWDATA, tr.PRDATA), UVM_NONE);
     mon_ap.write(tr);
