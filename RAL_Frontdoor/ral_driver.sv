@@ -43,7 +43,7 @@ class apb_driver extends uvm_driver#(apb_transaction);
       `uvm_info("DRV", $sformatf("Data Write -> Wdata : %0h",vif.PWDATA),UVM_NONE);
       
       @(vif.drv_cb);
-      vif.drv_cb.PSEL = 1'b0;
+      vif.drv_cb.PSEL <= 1'b0;
       vif.drv_cb.PENABLE <= 1'b0;
     end else begin
       
