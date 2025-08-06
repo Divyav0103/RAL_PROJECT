@@ -13,8 +13,7 @@ class frontdoor_reg_seq extends uvm_sequence;
     $display("------------------------------------------------------------ctrl1--------------------------------------------------");
     rdata = regmodel.ctrl1.get();
     rdata_m = regmodel.ctrl1.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("ctrl1 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), 
-UVM_NONE);
+    `uvm_info("SEQ", $sformatf("ctrl1 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m),UVM_NONE);
     
     regmodel.ctrl1.set(5'hf); 
     rdata = regmodel.ctrl1.get();
@@ -35,8 +34,7 @@ UVM_NONE);
     $display("------------------------------------------------------------R1--------------------------------------------------");
     rdata = regmodel.r1.get();
     rdata_m = regmodel.r1.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("Reg1 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), 
-UVM_NONE);
+    `uvm_info("SEQ", $sformatf("Reg1 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m),UVM_NONE);
     
     regmodel.r1.set(8'h55); 
     rdata = regmodel.r1.get();
@@ -80,8 +78,7 @@ UVM_NONE);
     $display("------------------------------------------------------------R3-------------------------------------------------");
     rdata = regmodel.r3.get();
     rdata_m = regmodel.r3.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("Reg3 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), 
-UVM_NONE);
+    `uvm_info("SEQ", $sformatf("Reg3 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m),UVM_NONE);
     
     regmodel.r3.set(8'hFF); 
     rdata = regmodel.r3.get();
@@ -103,8 +100,7 @@ UVM_NONE);
     $display("-------------------------------------------------------------R4--------------------------------------------------");
     rdata = regmodel.r4.get();
     rdata_m = regmodel.r4.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("Reg4 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), 
-UVM_NONE);
+    `uvm_info("SEQ", $sformatf("Reg4 Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m),UVM_NONE);
     
     regmodel.r4.set(8'h3C); 
     rdata = regmodel.r4.get();
@@ -125,7 +121,7 @@ UVM_NONE);
 endtask
 endclass
 
-///////////////////////////////////////////////RESET VALUE/////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////RESET VALUE/////////////////////////////////////////////////////////////////////////////
 class top_reg_seq extends uvm_sequence;
   `uvm_object_utils(top_reg_seq)
   apb_reg_block regmodel;
@@ -140,29 +136,93 @@ class top_reg_seq extends uvm_sequence;
     bit [31:0] rst_reg;
     bit rst_status;
     
-    //////Check if register has reset value
+    //////Check if R1 register has reset value
+    $display("-------------------------------------------------------------R1--------------------------------------------------");
+    rst_status = regmodel.r1.has_reset();
+    `uvm_info("SEQ", $sformatf("R1 Reset Value added : %0h ", rst_status), UVM_NONE);
+    
+    //////accessing default reset value of R1
+    rst_reg = regmodel.r1.get_reset();
+    `uvm_info("SEQ", $sformatf("R1 Register Reset Value : %0h ", rst_reg), UVM_NONE);
+    
+    ////////////////accessing mir and des before rst of R1
+    rdata = regmodel.r1.get();
+    rdata_m = regmodel.r1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R1 Before Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+    
+    ///////////////mir and des value after rst of R1
+    $display("--------------Applying Reset to register model R1 ---------------");
+    regmodel.r1.reset();
+    rdata = regmodel.r1.get();
+    rdata_m = regmodel.r1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R1 After Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+
+     //////Check if R2 register has reset value
+    $display("-------------------------------------------------------------R2--------------------------------------------------");
+    rst_status = regmodel.r2.has_reset();
+    `uvm_info("SEQ", $sformatf("R2 Reset Value added : %0h ", rst_status), UVM_NONE);
+    
+    //////accessing default reset value of R2
+    rst_reg = regmodel.r2.get_reset();
+    `uvm_info("SEQ", $sformatf("R2 Register Reset Value : %0h ", rst_reg), UVM_NONE);
+    
+    ////////////////accessing mir and des before rst of R2
+    rdata = regmodel.r2.get();
+    rdata_m = regmodel.r2.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R2 Before Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+    
+    ///////////////mir and des value after rst of R2
+    $display("--------------Applying Reset to register model R2---------------");
+    regmodel.r2.reset();
+    rdata = regmodel.r2.get();
+    rdata_m = regmodel.r2.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R2 After Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+
+     //////Check if R3 register has reset value
+    $display("-------------------------------------------------------------R3--------------------------------------------------");
     rst_status = regmodel.r3.has_reset();
-    `uvm_info("SEQ", $sformatf("Reset Value added : %0h ", rst_status), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("R3 Reset Value added : %0h ", rst_status), UVM_NONE);
     
-    //////accessing default reset value
+    //////accessing default reset value of R3
     rst_reg = regmodel.r3.get_reset();
-    `uvm_info("SEQ", $sformatf("Register Reset Value : %0h ", rst_reg), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("R3 Register Reset Value : %0h ", rst_reg), UVM_NONE);
     
-    ////////////////accessing mir and des before rst
+    ////////////////accessing mir and des before rst of R2
     rdata = regmodel.r3.get();
     rdata_m = regmodel.r3.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("Before Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("R3 Before Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
     
-    ///////////////mir and des value after rst
-    $display("--------------Applying Reset to register model ---------------");
+    ///////////////mir and des value after rst of R3
+    $display("--------------Applying Reset to register model R3---------------");
     regmodel.r3.reset();
     rdata = regmodel.r3.get();
     rdata_m = regmodel.r3.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("After Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("R3 After Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+
+       //////Check if R4 register has reset value
+    $display("-------------------------------------------------------------R4--------------------------------------------------");
+    rst_status = regmodel.r4.has_reset();
+    `uvm_info("SEQ", $sformatf("R4 Reset Value added : %0h ", rst_status), UVM_NONE);
+    
+    //////accessing default reset value of R4
+    rst_reg = regmodel.r4.get_reset();
+    `uvm_info("SEQ", $sformatf("R4 Register Reset Value : %0h ", rst_reg), UVM_NONE);
+    
+    ////////////////accessing mir and des before rst of R4
+    rdata = regmodel.r4.get();
+    rdata_m = regmodel.r4.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R4 Before Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+    
+    ///////////////mir and des value after rst of R4
+    $display("--------------Applying Reset to register model R4---------------");
+    regmodel.r4.reset();
+    rdata = regmodel.r4.get();
+    rdata_m = regmodel.r4.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("R4 After Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
   endtask
 endclass
 
-///////////////////////////////////////////////////////BACKDOOR ACCESS/////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////BACKDOOR ACCESS//////////////////////////////////////////////////////////////////////
 class backdoor_reg_seq extends uvm_sequence;
 `uvm_object_utils(backdoor_reg_seq)
 apb_reg_block regmodel;
