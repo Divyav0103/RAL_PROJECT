@@ -10,7 +10,7 @@ class apb_driver extends uvm_driver#(apb_transaction);
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual ral_if)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual ral_if.drv_cb)::get(this, "", "vif", vif))
       `uvm_error("DRV", "Unable to access interface");
   endfunction
 
@@ -40,12 +40,12 @@ class apb_driver extends uvm_driver#(apb_transaction);
       
       repeat(2) @(vif.drv_cb);
       vif.drv_cb.PENABLE <= 1'b1;
-    `uvm_info("DRV", $sformatf("Data Write -> Wdata : %0h",vif.PWDATA),UVM_NONE);
+      `uvm_info("DRV", $sformatf("Data Write -> Wdata : %0h",vif.PWDATA),UVM_NONE);
       
       @(vif.drv_cb);
       vif.drv_cb.PSEL = 1'b0;
       vif.drv_cb.PENABLE <= 1'b0;
-   end else begin
+    end else begin
       
      @(vif.drv_cb);
          vif.drv_cb.PSEL    <= 1'b1;
