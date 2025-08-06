@@ -16,11 +16,11 @@ class apb_driver extends uvm_driver#(apb_transaction);
 
   virtual task run_phase(uvm_phase phase);
     tr = apb_transaction::type_id::create("tr");
-    vif.drv_cb.psel    <= 1'b0;
-    vif.drv_cb.penable <= 1'b0;
-    vif.drv_cb.pwrite  <= 1'b0;
-    vif.drv_cb.paddr   <= 32'h0;
-    vif.drv_cb.pwdata  <= 32'h0;
+    vif.drv_cb.PSEL    <= 1'b0;
+    vif.drv_cb.PENABLE <= 1'b0;
+    vif.drv_cb.PWRITE  <= 1'b0;
+    vif.drv_cb.PADDR  <= 32'h0;
+    vif.drv_cb.PWDATA  <= 32'h0;
     
     forever begin
       seq_item_port.get_next_item(tr);
