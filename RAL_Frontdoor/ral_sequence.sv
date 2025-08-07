@@ -236,33 +236,33 @@ class top_reg_seq extends uvm_sequence;
     bit rst_status;
  
     // Check if R1 has reset value defined
-    $display("-------------------------------------------------------------R1--------------------------------------------------");
-    rst_status = regmodel.r1.has_reset();
+    $display("-------------------------------------------------------------R1-------------------------------------------------------------------");
+    rst_status = regmodel.r2.has_reset();
     `uvm_info("SEQ", $sformatf("R1 Reset value present in RAL model: %0b", rst_status), UVM_LOW);
  
     // Get reset value from R1 
-    rst_reg = regmodel.r1.get_reset();
+    rst_reg = regmodel.r2.get_reset();
     `uvm_info("SEQ", $sformatf("Configured RAL reset value for reg1: 0x%08h", rst_reg), UVM_LOW);
  
     // Print values before reset
-    rdata = regmodel.r1.get();
-    rdata_m = regmodel.r1.get_mirrored_value();
+    rdata = regmodel.r2.get();
+    rdata_m = regmodel.r2.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("R1 Before reset -> Desired: 0x%08h, Mirrored: 0x%08h", rdata, rdata_m), UVM_LOW);
  
     // Apply reset in the RAL model
-    $display("---------- Applying reset to REG1  ------------");
-    regmodel.r1.reset();  // updates desired value in RAL to reset
+    $display("-------------------------------- Applying reset to REG1  -----------------------------------------");
+    regmodel.r2.reset();  // updates desired value in RAL to reset
  
     // Read the value from the DUT and update mirror
-    regmodel.r1.mirror(status, UVM_CHECK, UVM_FRONTDOOR);
+    regmodel.r2.mirror(status, UVM_CHECK, UVM_FRONTDOOR);
  
     if (status != UVM_IS_OK) begin
       `uvm_error("SEQ", "Frontdoor mirror failed  check bus transaction or address mapping.");
     end
  
     // Fetch values after reset and DUT read
-    rdata = regmodel.r1.get();                 // Desired (reset) value from RAL model
-    rdata_m = regmodel.r1.get_mirrored_value();  // Value read from DUT via mirror
+    rdata = regmodel.r2.get();                 // Desired (reset) value from RAL model
+    rdata_m = regmodel.r2.get_mirrored_value();  // Value read from DUT via mirror
     dout = rdata_m;                              // Alias for clarity
  
     `uvm_info("SEQ", $sformatf("R1 After reset -> Desired: 0x%08h, Mirrored (DUT): 0x%08h", rdata, dout), UVM_LOW);
