@@ -219,7 +219,7 @@ class top_reg_seq extends uvm_sequence;
     regmodel.r4.reset();
     rdata = regmodel.r4.get();
     rdata_m = regmodel.r4.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("R4 After Reset -> Mir : %0h Des : %0h ", rdata_m, rdata), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("R4 After Reset -> Mir : %0h Des : %0h\n ", rdata_m, rdata), UVM_NONE);
   endtask
 endclass
 
