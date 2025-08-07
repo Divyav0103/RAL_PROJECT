@@ -27,7 +27,7 @@ module tb;
  initial begin
   uvm_config_db#(virtual ral_if.DRV)::set(null,"*","vif",vif.DRV);
   uvm_config_db#(virtual ral_if.MON)::set(null,"*","vif",vif.MON);
-  run_test("reg_test");
+  run_test("apb_reset_test");
  end
   
  initial begin

@@ -1,7 +1,7 @@
 class apb_driver extends uvm_driver#(apb_transaction);
   `uvm_component_utils(apb_driver)
 
-  virtual ral_if vif;
+  virtual ral_if.DRV vif;
   apb_transaction tr;
 
   function new(string name = "apb_driver", uvm_component parent = null);
@@ -10,7 +10,7 @@ class apb_driver extends uvm_driver#(apb_transaction);
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual ral_if.drv_cb)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual ral_if.DRV)::get(this, "", "vif", vif))
       `uvm_error("DRV", "Unable to access interface");
   endfunction
 
@@ -19,7 +19,7 @@ class apb_driver extends uvm_driver#(apb_transaction);
     vif.drv_cb.PSEL    <= 1'b0;
     vif.drv_cb.PENABLE <= 1'b0;
     vif.drv_cb.PWRITE  <= 1'b0;
-    vif.drv_cb.PADDR  <= 32'h0;
+    vif.drv_cb.PADDR   <= 32'h0;
     vif.drv_cb.PWDATA  <= 32'h0;
     
     forever begin
@@ -33,14 +33,14 @@ class apb_driver extends uvm_driver#(apb_transaction);
     if(tr.PWRITE == 1'b1) begin
       @(vif.drv_cb);
       vif.PRESETn <= 1'b1;
-      vif.drv_cb.PSEL <= 1'b1;
+      vif.drv_cb.PSEL   <= 1'b1;
       vif.drv_cb.PWDATA <= tr.PWDATA;
       vif.drv_cb.PWRITE <= 1'b1;
-      vif.drv_cb.PADDR <= tr.PADDR;
+      vif.drv_cb.PADDR  <= tr.PADDR;
       
       repeat(2) @(vif.drv_cb);
       vif.drv_cb.PENABLE <= 1'b1;
-      `uvm_info("DRV", $sformatf("Data Write -> Wdata : %0h",vif.PWDATA),UVM_NONE);
+      `uvm_info("DRV", $sformatf("Data Write -> Wdata : %0h",vif.drv_cb.PWDATA),UVM_NONE);
       
       @(vif.drv_cb);
       vif.drv_cb.PSEL <= 1'b0;
@@ -54,7 +54,7 @@ class apb_driver extends uvm_driver#(apb_transaction);
      
      repeat(2)@(vif.drv_cb);
      vif.drv_cb.PENABLE <= 1'b1;
-     `uvm_info("DRV", $sformatf("Data READ -> read data : %0h",vif.PRDATA),UVM_NONE);
+     `uvm_info("DRV", $sformatf("Data READ -> read data : %0h",vif.drv_cb.PRDATA),UVM_NONE);
      @(vif.drv_cb);
          vif.drv_cb.PSEL <= 1'b0;
          vif.drv_cb.PENABLE <=1'b0;

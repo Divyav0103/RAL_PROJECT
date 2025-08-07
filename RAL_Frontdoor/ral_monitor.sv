@@ -2,7 +2,7 @@ class apb_monitor extends uvm_monitor;
   `uvm_component_utils(apb_monitor)
 
   uvm_analysis_port #(apb_transaction) mon_ap;
-  virtual ral_if vif;
+  virtual ral_if.MON vif;
   
   apb_transaction tr;
   
@@ -12,7 +12,7 @@ class apb_monitor extends uvm_monitor;
     
   function void build_phase(uvm_phase phase);
     mon_ap = new("mon_ap",this);
-    if(!uvm_config_db#(virtual ral_if.mon_cb)::get(this,"","vif",vif))
+    if(!uvm_config_db#(virtual ral_if.MON)::get(this,"","vif",vif))
       `uvm_error("MON","Error getting interface handle")
   endfunction:build_phase
 
