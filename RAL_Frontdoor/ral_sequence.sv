@@ -117,7 +117,7 @@ class frontdoor_reg_seq extends uvm_sequence;
     regmodel.r4.read(status,dout_t);
     rdata   = regmodel.r4.get();
     rdata_m = regmodel.r4.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("Reg4 After read  -> Desired: %0d, Mirrored: %0d, Read: %0d", rdata, rdata_m,dout_t), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("Reg4 After read  -> Desired: %0d, Mirrored: %0d, Read: %0d\n", rdata, rdata_m,dout_t), UVM_NONE);
 
 endtask
 endclass
@@ -239,7 +239,7 @@ class top_reg_seq extends uvm_sequence;
  
     $display("--------------------------------------        RESET SEQUENCE      -- ------------------------------------------\n");
     // Check if R1 has reset value defined
-    $display("------------------------------------------------------------------R1----------------------------------------------------------------------");
+    $display("------------------------------------------------------------------R1-----------------------------------------------------------------");
     rst_status = regmodel.r1.has_reset();
     `uvm_info("SEQ", $sformatf("R1 Reset value present in RAL model: %0b", rst_status), UVM_LOW);
  
