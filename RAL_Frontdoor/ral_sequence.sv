@@ -10,6 +10,8 @@ class frontdoor_reg_seq extends uvm_sequence;
   task body;
     uvm_status_e status;
     bit [31:0] rdata, rdata_m, dout_t;
+   
+    $display("--------------------------------------     FRONTDOOR SEQUENCE       --------------------------------------------\n");
     $display("------------------------------------------------------------ctrl1--------------------------------------------------");
     rdata = regmodel.ctrl1.get();
     rdata_m = regmodel.ctrl1.get_mirrored_value();
@@ -235,6 +237,7 @@ class top_reg_seq extends uvm_sequence;
     uvm_reg_data_t rdata, rdata_m, dout, rst_reg;
     bit rst_status;
  
+    $display("--------------------------------------        RESET SEQUENCE      -- ------------------------------------------\n");
     // Check if R1 has reset value defined
     $display("------------------------------------------------------------------R1----------------------------------------------------------------------");
     rst_status = regmodel.r1.has_reset();

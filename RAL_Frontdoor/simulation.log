@@ -1,5 +1,5 @@
 # vsim -vopt work.tb -voptargs="+acc=npr" -assertdebug -l simulation.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; run -all; coverage report -detail; exit" 
-# Start time: 15:32:40 on Aug 06,2025
+# Start time: 10:26:14 on Aug 07,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -53,174 +53,215 @@
 # --------------------------------------------------------------
 # Name                       Type                    Size  Value
 # --------------------------------------------------------------
-# uvm_test_top               reg_test                -     @471 
-#   apb_env                  apb_env                 -     @478 
-#     agent_inst             apb_agent               -     @493 
-#       drv                  apb_driver              -     @552 
-#         rsp_port           uvm_analysis_port       -     @567 
-#         seq_item_port      uvm_seq_item_pull_port  -     @559 
-#       mon                  apb_monitor             -     @684 
-#         mon_ap             uvm_analysis_port       -     @692 
-#       seqr                 apb_sequencer           -     @575 
-#         rsp_export         uvm_analysis_export     -     @582 
-#         seq_item_export    uvm_seq_item_pull_imp   -     @676 
+# uvm_test_top               reg_test                -     @475 
+#   apb_env                  apb_env                 -     @482 
+#     agent_inst             apb_agent               -     @497 
+#       drv                  apb_driver              -     @556 
+#         rsp_port           uvm_analysis_port       -     @571 
+#         seq_item_port      uvm_seq_item_pull_port  -     @563 
+#       mon                  apb_monitor             -     @688 
+#         mon_ap             uvm_analysis_port       -     @696 
+#       seqr                 apb_sequencer           -     @579 
+#         rsp_export         uvm_analysis_export     -     @586 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @680 
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
-#     sc                     apb_scoreboard          -     @503 
-#       mon_port             uvm_analysis_imp        -     @510 
+#     sc                     apb_scoreboard          -     @507 
+#       mon_port             uvm_analysis_imp        -     @514 
 # --------------------------------------------------------------
 # 
 # ------------------------------------------------------------ctrl1--------------------------------------------------
 # UVM_INFO ral_sequence.sv(16) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] ctrl1 Initial Value -> Desired Value : 0 and Mirrored Value : 0
 # UVM_INFO ral_sequence.sv(22) @ 0: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] ctrl1 After update -> Desired: 15, Mirrored: 0, Read: 0
-# UVM_INFO ral_driver.sv(37) @ 25: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : f
-# UVM_INFO ral_monitor.sv(30) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 0 PWDATA:15 PRDATA:0
-# UVM_INFO ral_monitor.sv(32) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_driver.sv(43) @ 25: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : f
+# UVM_INFO ral_monitor.sv(32) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 0 PWDATA:15 PRDATA:0
+# UVM_INFO ral_monitor.sv(34) @ 25: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(40) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 0, Data = 15
 # UVM_INFO ral_scoreboard.sv(48) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(57) @ 35: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_driver.sv(63) @ 35: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
 # UVM_INFO ral_sequence.sv(28) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] ctrl1 After write -> Desired: 15, Mirrored: 15, Read: 0
-# UVM_INFO ral_monitor.sv(30) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 0 PWDATA:15 PRDATA:0
-# UVM_INFO ral_monitor.sv(32) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_monitor.sv(32) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 0 PWDATA:15 PRDATA:0
+# UVM_INFO ral_monitor.sv(34) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_ERROR ral_scoreboard.sv(43) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 0, Expected = f, Received = 0
 # UVM_INFO ral_scoreboard.sv(48) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(51) @ 65: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : 0
-# UVM_INFO ral_driver.sv(57) @ 75: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(32) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] ctrl1 After read  -> Desired: 0, Mirrored: 0, Read: 0
+# UVM_INFO ral_driver.sv(57) @ 65: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : 0
+# UVM_INFO ral_driver.sv(63) @ 75: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(32) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] ctrl1 After read  -> Desired: 15, Mirrored: 15, Read: 15
 # ------------------------------------------------------------R1--------------------------------------------------
 # UVM_INFO ral_sequence.sv(37) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg1 Initial Value -> Desired Value : 0 and Mirrored Value : 0
-# UVM_INFO ral_sequence.sv(43) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg1 After update -> Desired: 4294967295, Mirrored: 0, Read: 0
-# UVM_INFO ral_monitor.sv(30) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 0 PWDATA:15 PRDATA:15
-# UVM_INFO ral_monitor.sv(32) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_sequence.sv(43) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg1 After update -> Desired: 4294967295, Mirrored: 0, Read: 15
+# UVM_INFO ral_monitor.sv(32) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 0 PWDATA:15 PRDATA:15
+# UVM_INFO ral_monitor.sv(34) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(45) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 0, Data = f
 # UVM_INFO ral_scoreboard.sv(48) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(37) @ 105: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : ffffffff
-# UVM_INFO ral_monitor.sv(30) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 4 PWDATA:4294967295 PRDATA:15
-# UVM_INFO ral_monitor.sv(32) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_INFO ral_driver.sv(57) @ 115: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_driver.sv(43) @ 105: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : ffffffff
+# UVM_INFO ral_driver.sv(63) @ 115: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_monitor.sv(32) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 4 PWDATA:4294967295 PRDATA:15
+# UVM_INFO ral_monitor.sv(34) @ 115: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_sequence.sv(49) @ 115: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg1 After write -> Desired: 4294967295, Mirrored: 4294967295, Read: 15
 # UVM_INFO ral_scoreboard.sv(40) @ 115: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 4, Data = 4294967295
 # UVM_INFO ral_scoreboard.sv(48) @ 115: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_sequence.sv(49) @ 115: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg1 After write -> Desired: 4294967295, Mirrored: 4294967295, Read: 0
-# UVM_INFO ral_driver.sv(51) @ 145: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : f
-# UVM_INFO ral_monitor.sv(30) @ 145: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 4 PWDATA:4294967295 PRDATA:15
-# UVM_INFO ral_monitor.sv(32) @ 145: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 145: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : f
+# UVM_INFO ral_monitor.sv(32) @ 145: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 4 PWDATA:4294967295 PRDATA:15
+# UVM_INFO ral_monitor.sv(34) @ 145: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_ERROR ral_scoreboard.sv(43) @ 145: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 4, Expected = ffffffff, Received = f
 # UVM_INFO ral_scoreboard.sv(48) @ 145: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(57) @ 155: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(53) @ 155: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg1 After read  -> Desired: 15, Mirrored: 15, Read: 15
+# UVM_INFO ral_driver.sv(63) @ 155: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(53) @ 155: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg1 After read  -> Desired: 4294967295, Mirrored: 4294967295, Read: 4294967295
 # ------------------------------------------------------------R2--------------------------------------------------
 # UVM_INFO ral_sequence.sv(59) @ 155: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg2 Initial Value -> Desired Value : 0 and Mirrored Value : 0
-# UVM_INFO ral_sequence.sv(65) @ 155: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg2 After update -> Desired: 2863311530, Mirrored: 0, Read: 15
-# UVM_INFO ral_monitor.sv(30) @ 175: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:2863311530 PRDATA:4294967295
-# UVM_INFO ral_monitor.sv(32) @ 175: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_sequence.sv(65) @ 155: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg2 After update -> Desired: 2863311530, Mirrored: 0, Read: 4294967295
+# UVM_INFO ral_monitor.sv(32) @ 175: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:2863311530 PRDATA:4294967295
+# UVM_INFO ral_monitor.sv(34) @ 175: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(40) @ 175: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 2863311530
 # UVM_INFO ral_scoreboard.sv(48) @ 175: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(37) @ 185: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : aaaaaaaa
-# UVM_INFO ral_driver.sv(57) @ 195: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(71) @ 195: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg2 After write -> Desired: 2863311530, Mirrored: 2863311530, Read: 15
-# UVM_INFO ral_monitor.sv(30) @ 205: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:2863311530 PRDATA:4294967295
-# UVM_INFO ral_monitor.sv(32) @ 205: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_driver.sv(43) @ 185: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : aaaaaaaa
+# UVM_INFO ral_driver.sv(63) @ 195: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(71) @ 195: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg2 After write -> Desired: 2863311530, Mirrored: 2863311530, Read: 4294967295
+# UVM_INFO ral_monitor.sv(32) @ 205: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 8 PWDATA:2863311530 PRDATA:4294967295
+# UVM_INFO ral_monitor.sv(34) @ 205: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(40) @ 205: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 8, Data = 2863311530
 # UVM_INFO ral_scoreboard.sv(48) @ 205: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(51) @ 225: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : ffffffff
-# UVM_INFO ral_monitor.sv(30) @ 235: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:2863311530 PRDATA:4294967295
-# UVM_INFO ral_monitor.sv(32) @ 235: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_INFO ral_driver.sv(57) @ 235: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_ERROR ral_scoreboard.sv(43) @ 235: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 8, Expected = aaaaaaaa, Received = ffffffff
-# UVM_INFO ral_scoreboard.sv(48) @ 235: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_sequence.sv(75) @ 235: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg2 After read  -> Desired: 4294967295, Mirrored: 4294967295, Read: 4294967295
+# UVM_INFO ral_driver.sv(57) @ 225: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : ffffffff
+# UVM_INFO ral_driver.sv(63) @ 235: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_monitor.sv(32) @ 235: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:2863311530 PRDATA:2863311530
+# UVM_INFO ral_monitor.sv(34) @ 235: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_sequence.sv(75) @ 235: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg2 After read  -> Desired: 2863311530, Mirrored: 2863311530, Read: 2863311530
 # ------------------------------------------------------------R3-------------------------------------------------
 # UVM_INFO ral_sequence.sv(80) @ 235: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg3 Initial Value -> Desired Value : 0 and Mirrored Value : 0
-# UVM_INFO ral_sequence.sv(86) @ 235: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg3 After update -> Desired: 4294967295, Mirrored: 0, Read: 4294967295
-# UVM_INFO ral_driver.sv(37) @ 265: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : ffffffff
-# UVM_INFO ral_monitor.sv(30) @ 265: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 12 PWDATA:4294967295 PRDATA:2863311530
-# UVM_INFO ral_monitor.sv(32) @ 265: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_sequence.sv(86) @ 235: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg3 After update -> Desired: 4294967295, Mirrored: 0, Read: 2863311530
+# UVM_INFO ral_scoreboard.sv(45) @ 235: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 8, Data = aaaaaaaa
+# UVM_INFO ral_scoreboard.sv(48) @ 235: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(43) @ 265: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : ffffffff
+# UVM_INFO ral_monitor.sv(32) @ 265: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 12 PWDATA:4294967295 PRDATA:2863311530
+# UVM_INFO ral_monitor.sv(34) @ 265: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(40) @ 265: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = c, Data = 4294967295
 # UVM_INFO ral_scoreboard.sv(48) @ 265: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(57) @ 275: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(92) @ 275: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg3 After write -> Desired: 4294967295, Mirrored: 4294967295, Read: 4294967295
-# UVM_INFO ral_monitor.sv(30) @ 295: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 12 PWDATA:4294967295 PRDATA:2863311530
-# UVM_INFO ral_monitor.sv(32) @ 295: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_driver.sv(63) @ 275: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(92) @ 275: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg3 After write -> Desired: 4294967295, Mirrored: 4294967295, Read: 2863311530
+# UVM_INFO ral_monitor.sv(32) @ 295: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 12 PWDATA:4294967295 PRDATA:2863311530
+# UVM_INFO ral_monitor.sv(34) @ 295: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_ERROR ral_scoreboard.sv(43) @ 295: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = c, Expected = ffffffff, Received = aaaaaaaa
 # UVM_INFO ral_scoreboard.sv(48) @ 295: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(51) @ 305: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : aaaaaaaa
-# UVM_INFO ral_driver.sv(57) @ 315: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(96) @ 315: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg3 After read  -> Desired: 2863311530, Mirrored: 2863311530, Read: 2863311530
+# UVM_INFO ral_driver.sv(57) @ 305: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : aaaaaaaa
+# UVM_INFO ral_driver.sv(63) @ 315: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(96) @ 315: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg3 After read  -> Desired: 4294967295, Mirrored: 4294967295, Read: 4294967295
 # -------------------------------------------------------------R4--------------------------------------------------
 # UVM_INFO ral_sequence.sv(102) @ 315: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg4 Initial Value -> Desired Value : 0 and Mirrored Value : 0
-# UVM_INFO ral_sequence.sv(108) @ 315: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg4 After update -> Desired: 1010580540, Mirrored: 0, Read: 2863311530
-# UVM_INFO ral_monitor.sv(30) @ 325: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 12 PWDATA:4294967295 PRDATA:4294967295
-# UVM_INFO ral_monitor.sv(32) @ 325: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_sequence.sv(108) @ 315: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg4 After update -> Desired: 1010580540, Mirrored: 0, Read: 4294967295
+# UVM_INFO ral_monitor.sv(32) @ 325: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 12 PWDATA:4294967295 PRDATA:4294967295
+# UVM_INFO ral_monitor.sv(34) @ 325: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_INFO ral_scoreboard.sv(45) @ 325: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = c, Data = ffffffff
 # UVM_INFO ral_scoreboard.sv(48) @ 325: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(37) @ 345: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : 3c3c3c3c
-# UVM_INFO ral_monitor.sv(30) @ 355: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 16 PWDATA:1010580540 PRDATA:4294967295
-# UVM_INFO ral_monitor.sv(32) @ 355: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_INFO ral_driver.sv(57) @ 355: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_driver.sv(43) @ 345: uvm_test_top.apb_env.agent_inst.drv [DRV] Data Write -> Wdata : 3c3c3c3c
+# UVM_INFO ral_driver.sv(63) @ 355: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_monitor.sv(32) @ 355: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :1 PADDR : 16 PWDATA:1010580540 PRDATA:4294967295
+# UVM_INFO ral_monitor.sv(34) @ 355: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_sequence.sv(114) @ 355: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg4 After write -> Desired: 1010580540, Mirrored: 1010580540, Read: 4294967295
 # UVM_INFO ral_scoreboard.sv(40) @ 355: uvm_test_top.apb_env.sc [SCOREBOARD--------WRITE] WRITE: Addr = 10, Data = 1010580540
 # UVM_INFO ral_scoreboard.sv(48) @ 355: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_sequence.sv(114) @ 355: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg4 After write -> Desired: 1010580540, Mirrored: 1010580540, Read: 2863311530
-# UVM_INFO ral_driver.sv(51) @ 385: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : ffffffff
-# UVM_INFO ral_monitor.sv(30) @ 385: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 16 PWDATA:1010580540 PRDATA:4294967295
-# UVM_INFO ral_monitor.sv(32) @ 385: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 385: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : ffffffff
+# UVM_INFO ral_monitor.sv(32) @ 385: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 16 PWDATA:1010580540 PRDATA:4294967295
+# UVM_INFO ral_monitor.sv(34) @ 385: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
 # UVM_ERROR ral_scoreboard.sv(43) @ 385: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 10, Expected = 0, Received = ffffffff
 # UVM_INFO ral_scoreboard.sv(48) @ 385: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
-# UVM_INFO ral_driver.sv(57) @ 395: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(118) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg4 After read  -> Desired: 4294967295, Mirrored: 4294967295, Read: 4294967295
-# -------------------------------------------------------------R1--------------------------------------------------
-# UVM_INFO ral_sequence.sv(141) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R1 Reset Value added : 1 
-# UVM_INFO ral_sequence.sv(145) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R1 Register Reset Value : a5a50000 
-# UVM_INFO ral_sequence.sv(150) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R1 Before Reset -> Mir : f Des : f 
-# --------------Applying Reset to register model R1 ---------------
-# UVM_INFO ral_sequence.sv(157) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R1 After Reset -> Mir : a5a50000 Des : a5a50000 
-# -------------------------------------------------------------R2--------------------------------------------------
-# UVM_INFO ral_sequence.sv(162) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R2 Reset Value added : 1 
-# UVM_INFO ral_sequence.sv(166) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R2 Register Reset Value : 12349876 
-# UVM_INFO ral_sequence.sv(171) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R2 Before Reset -> Mir : ffffffff Des : ffffffff 
-# --------------Applying Reset to register model R2---------------
-# UVM_INFO ral_sequence.sv(178) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R2 After Reset -> Mir : 12349876 Des : 12349876 
-# -------------------------------------------------------------R3--------------------------------------------------
-# UVM_INFO ral_sequence.sv(183) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R3 Reset Value added : 1 
-# UVM_INFO ral_sequence.sv(187) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R3 Register Reset Value : 5a5a5555 
-# UVM_INFO ral_sequence.sv(192) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R3 Before Reset -> Mir : aaaaaaaa Des : aaaaaaaa 
-# --------------Applying Reset to register model R3---------------
-# UVM_INFO ral_sequence.sv(199) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R3 After Reset -> Mir : 5a5a5555 Des : 5a5a5555 
-# -------------------------------------------------------------R4--------------------------------------------------
-# UVM_INFO ral_sequence.sv(204) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R4 Reset Value added : 1 
-# UVM_INFO ral_sequence.sv(208) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R4 Register Reset Value : ffff 
-# UVM_INFO ral_sequence.sv(213) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R4 Before Reset -> Mir : ffffffff Des : ffffffff 
-# --------------Applying Reset to register model R4---------------
-# UVM_INFO ral_sequence.sv(220) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R4 After Reset -> Mir : ffff Des : ffff 
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 415: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO ral_monitor.sv(30) @ 415: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 16 PWDATA:1010580540 PRDATA:1010580540
-# UVM_INFO ral_monitor.sv(32) @ 415: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
-# UVM_ERROR ral_scoreboard.sv(43) @ 415: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 10, Expected = 0, Received = 3c3c3c3c
+# UVM_INFO ral_driver.sv(63) @ 395: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(118) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt1 [SEQ] Reg4 After read  -> Desired: 1010580540, Mirrored: 1010580540, Read: 1010580540
+# ------------------------------------------------------------------R1----------------------------------------------------------------------
+# UVM_INFO ral_sequence.sv(241) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R1 Reset value present in RAL model: 1
+# UVM_INFO ral_sequence.sv(245) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] Configured RAL reset value for reg1: 0xa5a50000
+# UVM_INFO ral_sequence.sv(250) @ 395: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R1 Before reset -> Desired: 0xffffffff, Mirrored: 0xffffffff
+# --------------------------------------------- Applying reset to REG1  --------------------------------------------------
+# UVM_INFO ral_monitor.sv(32) @ 415: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 4 PWDATA:1010580540 PRDATA:1010580540
+# UVM_INFO ral_monitor.sv(34) @ 415: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 415: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 4, Expected = ffffffff, Received = 3c3c3c3c
 # UVM_INFO ral_scoreboard.sv(48) @ 415: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 425: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : 3c3c3c3c
+# UVM_INFO ral_driver.sv(63) @ 435: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_ERROR verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2890) @ 435: reporter [RegModel] Register "regmodel.r1" value read from DUT (0x00000000ffffffff) does not match mirrored value (0x00000000a5a50000)
+# UVM_INFO verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2909) @ 435: reporter [RegModel] Field reg1 (regmodel.r1[31:0]) mismatch read=32'hffffffff mirrored=32'ha5a50000 
+# UVM_INFO ral_sequence.sv(267) @ 435: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R1 After reset -> Desired: 0xffffffff, Mirrored (DUT): 0xffffffff
+# UVM_ERROR ral_sequence.sv(271) @ 435: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R1 Reset mismatch: DUT read = 0xffffffff, Expected (RAL) = 0xa5a50000
+# ------------------------------------------------------------------------R2----------------------------------------------------------------
+# UVM_INFO ral_sequence.sv(279) @ 435: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R2 Reset value present in RAL model: 1
+# UVM_INFO ral_sequence.sv(283) @ 435: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] Configured RAL reset value for reg2: 0x12349876
+# UVM_INFO ral_sequence.sv(288) @ 435: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R2 Before reset -> Desired: 0xaaaaaaaa, Mirrored: 0xaaaaaaaa
+# ---------------------------------------- Applying reset to REG2  -------------------------------------------------------
+# UVM_INFO ral_monitor.sv(32) @ 445: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 4 PWDATA:1010580540 PRDATA:4294967295
+# UVM_INFO ral_monitor.sv(34) @ 445: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_INFO ral_scoreboard.sv(45) @ 445: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 4, Data = ffffffff
+# UVM_INFO ral_scoreboard.sv(48) @ 445: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 465: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : ffffffff
+# UVM_INFO ral_driver.sv(63) @ 475: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_monitor.sv(32) @ 475: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:1010580540 PRDATA:2863311530
+# UVM_INFO ral_monitor.sv(34) @ 475: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2890) @ 475: reporter [RegModel] Register "regmodel.r2" value read from DUT (0x00000000aaaaaaaa) does not match mirrored value (0x0000000012349876)
+# UVM_INFO verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2909) @ 475: reporter [RegModel] Field reg2 (regmodel.r2[31:0]) mismatch read=32'haaaaaaaa mirrored=32'h12349876 
+# UVM_INFO ral_sequence.sv(306) @ 475: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R2 After reset -> Desired: 0xaaaaaaaa, Mirrored (DUT): 0xaaaaaaaa
+# UVM_ERROR ral_sequence.sv(310) @ 475: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R2 Reset mismatch: DUT read = 0xaaaaaaaa, Expected (RAL) = 0x12349876
+# ------------------------------------------------------------------------R3----------------------------------------------------------------
+# UVM_INFO ral_sequence.sv(318) @ 475: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R3 Reset value present in RAL model: 1
+# UVM_INFO ral_sequence.sv(322) @ 475: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] Configured RAL reset value for reg3: 0x5a5a5555
+# UVM_INFO ral_sequence.sv(327) @ 475: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R3 Before reset -> Desired: 0xffffffff, Mirrored: 0xffffffff
+# ---------------------------------------- Applying reset to REG2  -------------------------------------------------------
+# UVM_INFO ral_scoreboard.sv(45) @ 475: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 8, Data = aaaaaaaa
+# UVM_INFO ral_scoreboard.sv(48) @ 475: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 505: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : aaaaaaaa
+# UVM_INFO ral_monitor.sv(32) @ 505: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 12 PWDATA:1010580540 PRDATA:2863311530
+# UVM_INFO ral_monitor.sv(34) @ 505: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 505: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = c, Expected = ffffffff, Received = aaaaaaaa
+# UVM_INFO ral_scoreboard.sv(48) @ 505: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(63) @ 515: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_ERROR verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2890) @ 515: reporter [RegModel] Register "regmodel.r3" value read from DUT (0x00000000ffffffff) does not match mirrored value (0x000000005a5a5555)
+# UVM_INFO verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2909) @ 515: reporter [RegModel] Field reg3 (regmodel.r3[31:0]) mismatch read=32'hffffffff mirrored=32'h5a5a5555 
+# UVM_INFO ral_sequence.sv(345) @ 515: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R3 After reset -> Desired: 0xffffffff, Mirrored (DUT): 0xffffffff
+# UVM_ERROR ral_sequence.sv(349) @ 515: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R3 Reset mismatch: DUT read = 0xffffffff, Expected (RAL) = 0x5a5a5555
+# ------------------------------------------------------------------R4----------------------------------------------------------------------
+# UVM_INFO ral_sequence.sv(357) @ 515: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R4 Reset value present in RAL model: 1
+# UVM_INFO ral_sequence.sv(361) @ 515: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] Configured RAL reset value for reg4: 0x0000ffff
+# UVM_INFO ral_sequence.sv(366) @ 515: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R4 Before reset -> Desired: 0x3c3c3c3c, Mirrored: 0x3c3c3c3c
+# --------------------------------------------- Applying reset to REG4  --------------------------------------------------
+# UVM_INFO ral_monitor.sv(32) @ 535: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 16 PWDATA:1010580540 PRDATA:4294967295
+# UVM_INFO ral_monitor.sv(34) @ 535: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 535: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 10, Expected = 0, Received = ffffffff
+# UVM_INFO ral_scoreboard.sv(48) @ 535: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 545: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : ffffffff
+# UVM_INFO ral_driver.sv(63) @ 555: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_ERROR verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2890) @ 555: reporter [RegModel] Register "regmodel.r4" value read from DUT (0x000000003c3c3c3c) does not match mirrored value (0x000000000000ffff)
+# UVM_INFO verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2909) @ 555: reporter [RegModel] Field reg4 (regmodel.r4[31:0]) mismatch read=32'h3c3c3c3c mirrored=32'hffff 
+# UVM_INFO ral_sequence.sv(383) @ 555: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R4 After reset -> Desired: 0x3c3c3c3c, Mirrored (DUT): 0x3c3c3c3c
+# UVM_ERROR ral_sequence.sv(387) @ 555: uvm_test_top.apb_env.agent_inst.seqr@@pkt2 [SEQ] R4 Reset mismatch: DUT read = 0x3c3c3c3c, Expected (RAL) = 0x0000ffff
+# UVM_INFO ral_monitor.sv(32) @ 565: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 16 PWDATA:1010580540 PRDATA:1010580540
+# UVM_INFO ral_monitor.sv(34) @ 565: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 565: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 10, Expected = 0, Received = 3c3c3c3c
+# UVM_INFO ral_scoreboard.sv(48) @ 565: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 575: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :  111
+# UVM_INFO :  141
 # UVM_WARNING :    0
-# UVM_ERROR :    6
+# UVM_ERROR :   16
 # UVM_FATAL :    0
 # ** Report counts by id
-# [DRV]    10
-# [MON]    28
+# [DRV]    14
+# [MON]    38
 # [Questa UVM]     2
 # [RNTST]     1
-# [SCOREBOARD]    14
-# [SCOREBOARD----------MISMATCH]     6
-# [SCOREBOARD---------MATCH]     2
+# [RegModel]     8
+# [SCOREBOARD]    19
+# [SCOREBOARD----------MISMATCH]     8
+# [SCOREBOARD---------MATCH]     5
 # [SCOREBOARD--------WRITE]     6
-# [SEQ]    36
+# [SEQ]    40
 # [TEST_DONE]     1
 # [UVMTOP]     1
-# [drv]    10
+# [drv]    14
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 415 ns  Iteration: 53  Instance: /tb
+#    Time: 575 ns  Iteration: 53  Instance: /tb
 # Saving coverage database on exit...
-# End time: 15:32:43 on Aug 06,2025, Elapsed time: 0:00:03
+# End time: 10:26:17 on Aug 07,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
