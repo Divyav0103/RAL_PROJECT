@@ -21,7 +21,7 @@ class apb_monitor extends uvm_monitor;
     tr = apb_transaction::type_id::create("tr");
 
   forever begin
-    repeat(3) @(vif.mon_cb); // Sync with APB clock
+     repeat(3) @(vif.mon_cb); // Sync with APB clock
       tr.PWRITE = vif.mon_cb.PWRITE;
       tr.PADDR = vif.mon_cb.PADDR;
       tr.PWDATA = vif.mon_cb.PWDATA;

@@ -1,5 +1,5 @@
 # vsim -c tb -do "run -all;quit" 
-# Start time: 10:05:38 on Aug 07,2025
+# Start time: 10:16:03 on Aug 07,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -57,28 +57,46 @@
 # UVM_INFO ral_scoreboard.sv(45) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD---------MATCH] READ MATCH: Addr = 8, Data = 0
 # UVM_INFO ral_scoreboard.sv(48) @ 25: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
 # UVM_INFO ral_driver.sv(63) @ 35: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
-# UVM_INFO ral_sequence.sv(268) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 After reset -> Desired: 0x12349876, Mirrored (DUT): 0x12349876
-# UVM_INFO ral_sequence.sv(274) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reset verification for REG1 passed!
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 55: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ral_sequence.sv(267) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 After reset -> Desired: 0x00000000, Mirrored (DUT): 0x00000000
+# UVM_ERROR ral_sequence.sv(271) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R1 Reset mismatch: DUT read = 0x00000000, Expected (RAL) = 0x12349876
+# --------------------------------------------------------------------R2------------------------------------------------------------
+# UVM_INFO ral_sequence.sv(279) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Reset value present in RAL model: 1
+# UVM_INFO ral_sequence.sv(283) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Configured RAL reset value for reg2: 0x12349876
+# UVM_INFO ral_sequence.sv(288) @ 35: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 Before reset -> Desired: 0x12349876, Mirrored: 0x12349876
+# ---------------------------- Applying reset to REG2  ---------------------------------------------------
+# UVM_INFO ral_monitor.sv(32) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:0 PRDATA:305436790
+# UVM_INFO ral_monitor.sv(34) @ 55: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 8, Expected = 0, Received = 12349876
+# UVM_INFO ral_scoreboard.sv(48) @ 55: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO ral_driver.sv(57) @ 65: uvm_test_top.apb_env.agent_inst.drv [DRV] Data READ -> read data : 12349876
+# UVM_INFO ral_driver.sv(63) @ 75: uvm_test_top.apb_env.agent_inst.drv [drv] -----------------------------------DRIVER DONE--------------------
+# UVM_INFO ral_sequence.sv(306) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] R2 After reset -> Desired: 0x12349876, Mirrored (DUT): 0x12349876
+# UVM_INFO ral_sequence.sv(312) @ 75: uvm_test_top.apb_env.agent_inst.seqr@@trseq [SEQ] Reset verification for REG2 passed!
+# UVM_INFO ral_monitor.sv(32) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] PWRITE :0 PADDR : 8 PWDATA:0 PRDATA:305436790
+# UVM_INFO ral_monitor.sv(34) @ 85: uvm_test_top.apb_env.agent_inst.mon [MON] ---------------------------------MONITOR DONE--------------------------------------------
+# UVM_ERROR ral_scoreboard.sv(43) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD----------MISMATCH] Mismatch at Addr = 8, Expected = 0, Received = 12349876
+# UVM_INFO ral_scoreboard.sv(48) @ 85: uvm_test_top.apb_env.sc [SCOREBOARD] ---------------------------------------SCOREBOARD DONE--------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 95: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   15
+# UVM_INFO :   27
 # UVM_WARNING :    0
-# UVM_ERROR :    0
+# UVM_ERROR :    3
 # UVM_FATAL :    0
 # ** Report counts by id
-# [DRV]     1
-# [MON]     2
+# [DRV]     2
+# [MON]     6
 # [Questa UVM]     2
 # [RNTST]     1
-# [SCOREBOARD]     1
+# [SCOREBOARD]     3
+# [SCOREBOARD----------MISMATCH]     2
 # [SCOREBOARD---------MATCH]     1
-# [SEQ]     5
+# [SEQ]    10
 # [TEST_DONE]     1
-# [drv]     1
+# [drv]     2
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 55 ns  Iteration: 53  Instance: /tb
-# End time: 10:05:40 on Aug 07,2025, Elapsed time: 0:00:02
+#    Time: 95 ns  Iteration: 53  Instance: /tb
+# End time: 10:16:06 on Aug 07,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
