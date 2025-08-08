@@ -32,7 +32,7 @@ Verify that all registers can be accessed correctly via backdoor read and write 
 #### Reset 
 <img width="1153" height="465" alt="image" src="https://github.com/user-attachments/assets/6676acfe-90ad-4cc1-a657-55d1109a3f4f" />
 
-#### Backdoor Acsess
+#### Backdoor Access
 <img width="1108" height="487" alt="image" src="https://github.com/user-attachments/assets/7f15fe3a-aa06-4da7-9d4f-4d1e93d8b9b0" />
 
 #### Regression Test
