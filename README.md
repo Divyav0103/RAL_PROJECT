@@ -27,4 +27,5 @@ Verify that all registers can be accessed correctly via backdoor read and write 
 ## Results:
 ### Waveforms
 #### Frontdoor Access
+<img width="1163" height="473" alt="image" src="https://github.com/user-attachments/assets/7092688f-9ff2-477c-b00f-1b2718216d0f" />
 
