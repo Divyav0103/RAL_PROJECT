@@ -19,7 +19,12 @@ This project implements a simple APB-based register interface with four 32-bit r
 Validate that each register supports correct read and write operations using frontdoor access.
 
 ### Test Case 2 : Reset Value Verification
-Ensure that the default reset value of all registers matches the expected specification.
+Verify that the default reset value of all registers matches the expected specification.
 
 ### Test Case 3 : Backdoor Register Access
 Verify that all registers can be accessed correctly via backdoor read and write methods.
+
+## Results:
+### Waveforms
+#### Frontdoor Access
+
